@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react'
 import GlobalStyles from '../../styles/global'
-import { Container } from './styles'
+import { Container, Header, Main } from './styles'
 
 const Layout: FunctionComponent = ({ children }) => (
   <Container>
     <GlobalStyles />
-    <header>
+    <Header>
       nav here
-    </header>
-    <main>
+    </Header>
+    <Main>
       {children}
-    </main>
+    </Main>
   </Container>
 )
 
