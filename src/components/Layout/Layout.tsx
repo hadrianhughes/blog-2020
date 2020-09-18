@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import GlobalStyles from '../../styles/global'
+import { Container } from './styles'
 
 const Layout: FunctionComponent = ({ children }) => (
-  <>
+  <Container>
     <GlobalStyles />
     <header>
       nav here
@@ -10,7 +11,7 @@ const Layout: FunctionComponent = ({ children }) => (
     <main>
       {children}
     </main>
-  </>
+  </Container>
 )
 
 export default Layout
