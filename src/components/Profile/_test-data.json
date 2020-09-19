@@ -1,0 +1,17 @@
+{
+  "data": {
+    "contentfulProfile": {
+      "profileImage": {
+        "description": "test-description",
+        "fluid": {
+          "srcSet": "test-srcset",
+          "src": "test-src"
+        }
+      },
+      "heading": "test-heading",
+      "introduction": {
+        "introduction": "test-introduction"
+      }
+    }
+  }
+}
