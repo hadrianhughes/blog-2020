@@ -13,11 +13,11 @@ describe('Profile component', () => {
   const wrapper = shallow(<Profile />)
 
   it('Should render a <section>', () => {
-    expect(wrapper.find('section').exists).toBeTruthy()
+    expect(wrapper.find('section').exists()).toBeTruthy()
   })
 
   it('Should render a picture tag inside the <section>', () => {
-    expect(wrapper.find('section > picture').exists).toBeTruthy()
+    expect(wrapper.find('section > picture').exists()).toBeTruthy()
   })
 
   it('Should render the `srcSet` property into a <source>', () => {
