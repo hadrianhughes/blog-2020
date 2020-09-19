@@ -4,6 +4,26 @@ import Layout from './Layout'
 import Profile from '../Profile'
 import { Header, Main } from './styles'
 
+jest.mock('gatsby', () => ({
+  ...jest.requireActual('gatsby'),
+  graphql: () => null,
+  useStaticQuery: () => ({
+    contentfulProfile: {
+      profileImage: {
+        description: 'test-description',
+        fluid: {
+          srcSet: 'test-src-set',
+          src: 'test-src'
+        }
+      },
+      heading: 'test-heading',
+      introduction: {
+        introduction: 'test-introduction'
+      }
+    }
+  })
+}))
+
 jest.mock('react-responsive', () => ({
   useMediaQuery: jest.fn()
 }))
@@ -28,6 +48,17 @@ describe('Layout component', () => {
     const wrapper = shallow(<Layout />)
 
     expect(wrapper.find(Profile).exists()).toBeTruthy()
+  })
+
+  it('Should pass the Contentful data from `useStaticQuery` to the <Profile>', () => {
+    useMediaQuery.mockImplementation(() => true)
+    const wrapper = shallow(<Layout />)
+
+    expect(wrapper.find(Profile).prop('imgSrc')).toBe('test-src')
+    expect(wrapper.find(Profile).prop('imgSrcSet')).toBe('test-src-set')
+    expect(wrapper.find(Profile).prop('imgAlt')).toBe('test-description')
+    expect(wrapper.find(Profile).prop('heading')).toBe('test-heading')
+    expect(wrapper.find(Profile).prop('introduction')).toBe('test-introduction')
   })
 
   it('Should not render <Profile> by default at mobile', () => {

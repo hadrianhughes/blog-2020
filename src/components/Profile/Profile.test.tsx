@@ -1,62 +1,79 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Profile from './Profile'
+import Profile, { ProfileProps } from './Profile'
 import { ProfileImg, Heading, Introduction } from './styles'
 
-jest.mock('gatsby', () => ({
-  ...jest.requireActual('gatsby'),
-  useStaticQuery: () => require('./_test-data.json'),
-  graphql: () => null
-}))
+const baseProps: ProfileProps = {
+  imgSrc: 'img-src',
+  imgSrcSet: 'img-src-set',
+  imgAlt: 'img-alt',
+  heading: 'heading',
+  introduction: 'introduction'
+}
 
 describe('Profile component', () => {
-  const wrapper = shallow(<Profile />)
-
   it('Should render a <section>', () => {
+    const wrapper = shallow(<Profile {...baseProps} />)
     expect(wrapper.find('section').exists()).toBeTruthy()
   })
 
   it('Should render a picture tag inside the <section>', () => {
+    const wrapper = shallow(<Profile {...baseProps} />)
     expect(wrapper.find('section > picture').exists()).toBeTruthy()
   })
 
-  it('Should render the `srcSet` property into a <source>', () => {
-    expect(wrapper.find('section > picture > source').prop('srcSet')).toBe('test-srcset')
+  it('Should render the `imgSrcSet` prop into a <source>', () => {
+    const imgSrcSet = 'test-src-set'
+    const wrapper = shallow(<Profile {...baseProps} imgSrcSet={imgSrcSet} />)
+
+    expect(wrapper.find('section > picture > source').prop('srcSet')).toBe(imgSrcSet)
   })
 
-  it('Should render the `src` property into a <ProfileImg>', () => {
+  it('Should render the `imgSrc` prop into a <ProfileImg>', () => {
+    const imgSrc = 'test-src'
+    const wrapper = shallow(<Profile {...baseProps} imgSrc={imgSrc} />)
+
     expect(
       wrapper
         .find('section > picture')
         .find(ProfileImg)
         .prop('src')
-    ).toBe('test-src')
+    ).toBe(imgSrc)
   })
 
   it('Should use the `description` property for the <img> alt', () => {
+    const imgAlt = 'test-alt'
+    const wrapper = shallow(<Profile {...baseProps} imgAlt={imgAlt} />)
+
     expect(
       wrapper
         .find('section > picture')
         .find(ProfileImg)
         .prop('alt')
-    ).toBe('test-description')
+    ).toBe(imgAlt)
   })
 
   it('Should render the `heading` property in a <Heading>', () => {
+    const heading = 'test-heading'
+    const wrapper = shallow(<Profile {...baseProps} heading={heading} />)
+
     expect(
       wrapper
         .find('section')
         .find(Heading)
         .text()
-    ).toBe('test-heading')
+    ).toBe(heading)
   })
 
   it('Should render the `introduction` property in an <Introduction>', () => {
+    const introduction = 'test-introduction'
+    const wrapper = shallow(<Profile {...baseProps} introduction={introduction} />)
+
     expect(
       wrapper
         .find('section')
         .find(Introduction)
         .text()
-    ).toBe('test-introduction')
+    ).toBe(introduction)
   })
 })

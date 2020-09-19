@@ -1,60 +1,29 @@
 import React, { FunctionComponent } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { ProfileImg, Heading, Introduction } from './styles'
 
-export type ProfileData = {
-  contentfulProfile: {
-    profileImage: {
-      description: string
-      fluid: {
-        srcSet: string,
-        src: string
-      }
-    }
-    heading: string
-    introduction: {
-      introduction: string
-    }
-  }
+export interface ProfileProps {
+  imgSrc: string
+  imgSrcSet: string
+  imgAlt: string
+  heading: string
+  introduction: string
 }
 
-const Profile: FunctionComponent = () => {
-  const data: ProfileData = useStaticQuery(
-    graphql`
-      query ProfileQuery {
-        contentfulProfile {
-          profileImage {
-            description
-            fluid(toFormat: WEBP) {
-              srcSet
-              src
-            }
-          }
-          heading
-          introduction {
-            introduction
-          }
-        }
-      }
-    `
-  )
-
-  const {
-    contentfulProfile: {
-      profileImage,
-      heading,
-      introduction
-    }
-  } = data
-
+const Profile: FunctionComponent<ProfileProps> = ({
+  imgSrc,
+  imgSrcSet,
+  imgAlt,
+  heading,
+  introduction
+}) => {
   return (
     <section>
       <picture>
-        <source srcSet={profileImage.fluid.srcSet} />
-        <ProfileImg src={profileImage.fluid.src} alt={profileImage.description} />
+        <source srcSet={imgSrcSet} />
+        <ProfileImg src={imgSrc} alt={imgAlt} />
       </picture>
       <Heading>{heading}</Heading>
-      <Introduction>{introduction.introduction}</Introduction>
+      <Introduction>{introduction}</Introduction>
     </section>
   )
 }
