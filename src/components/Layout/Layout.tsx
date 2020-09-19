@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 import GlobalStyles from '../../styles/global'
 import { breakpoints } from '../../styles/settings'
 import Profile from '../Profile'
+import MobileBumper from '../MobileBumper'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
 
@@ -58,7 +59,9 @@ const Layout: FunctionComponent = ({ children }) => {
                 <hr />
               </>
             )
-            : null
+            : (
+              <MobileBumper heading={heading} onOpen={() => setOpen(true)} />
+            )
         }
       </Header>
       <Main>
