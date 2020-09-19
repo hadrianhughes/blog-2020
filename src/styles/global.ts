@@ -11,7 +11,8 @@ const Globals = createGlobalStyle`
 
   hr {
     border: 1px solid ${colors.lightGrey};
-    margin: ${rem(30)} 0;
+    margin: ${rem(30)} auto;
+    width: 80%;
   }
 
   @font-face {
