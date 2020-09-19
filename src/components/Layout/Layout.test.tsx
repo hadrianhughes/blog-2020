@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Layout from './Layout'
 import Profile from '../Profile'
+import MobileBumper from '../MobileBumper'
 import { Header, Main } from './styles'
 
 jest.mock('gatsby', () => ({
@@ -66,5 +67,30 @@ describe('Layout component', () => {
     const wrapper = shallow(<Layout />)
 
     expect(wrapper.find(Profile).exists()).not.toBeTruthy()
+  })
+
+  it('Should render a <MobileBumper> by default at mobile', () => {
+    useMediaQuery.mockImplementation(() => false)
+    const wrapper = shallow(<Layout />)
+
+    expect(wrapper.find(MobileBumper).exists()).toBeTruthy()
+  })
+
+  it('Should pass the `heading` from Contentful to the <MobileBumper>', () => {
+    useMediaQuery.mockImplementation(() => false)
+    const wrapper = shallow(<Layout />)
+
+    expect(wrapper.find(MobileBumper).prop('heading')).toBe('test-heading')
+  })
+
+  it('Should render <Profile> instead on mobile after `onOpen` is clicked on <MobileBumper>', () => {
+    useMediaQuery.mockImplementation(() => false)
+    const wrapper = shallow(<Layout />)
+
+    wrapper.find(MobileBumper).prop('onOpen')()
+    wrapper.update()
+
+    expect(wrapper.find(MobileBumper).exists()).not.toBeTruthy()
+    expect(wrapper.find(Profile).exists()).toBeTruthy()
   })
 })
