@@ -10,7 +10,7 @@ const Globals = createGlobalStyle`
   }
 
   hr {
-    border: 1px solid ${colors.midGrey};
+    border: 1px solid ${colors.lightGrey};
     margin: ${rem(30)} 0;
   }
 

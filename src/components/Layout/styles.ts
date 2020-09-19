@@ -11,7 +11,6 @@ export const Container = styled.div`
 `
 
 export const Header = styled.header`
-  background-color: ${colors.blueGrey};
   padding: ${rem(20)};
 `
 
