@@ -5,7 +5,7 @@ import { colors } from '../../styles/settings'
 export const Container = styled.div`
   ${minWidth('small')} {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3.5fr;
     min-height: 100vh;
   }
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Profile from './Profile'
+import { ProfileImg, Heading, Introduction } from './styles'
 
 jest.mock('gatsby', () => ({
   ...jest.requireActual('gatsby'),
@@ -23,19 +24,39 @@ describe('Profile component', () => {
     expect(wrapper.find('section > picture > source').prop('srcSet')).toBe('test-srcset')
   })
 
-  it('Should render the `src` property into an <img>', () => {
-    expect(wrapper.find('section > picture > img').prop('src')).toBe('test-src')
+  it('Should render the `src` property into a <ProfileImg>', () => {
+    expect(
+      wrapper
+        .find('section > picture')
+        .find(ProfileImg)
+        .prop('src')
+    ).toBe('test-src')
   })
 
   it('Should use the `description` property for the <img> alt', () => {
-    expect(wrapper.find('section > picture > img').prop('alt')).toBe('test-description')
+    expect(
+      wrapper
+        .find('section > picture')
+        .find(ProfileImg)
+        .prop('alt')
+    ).toBe('test-description')
   })
 
-  it('Should render the `heading` property in an <h1>', () => {
-    expect(wrapper.find('section > h1').text()).toBe('test-heading')
+  it('Should render the `heading` property in a <Heading>', () => {
+    expect(
+      wrapper
+        .find('section')
+        .find(Heading)
+        .text()
+    ).toBe('test-heading')
   })
 
-  it('Should render the `introduction` property in a <p>', () => {
-    expect(wrapper.find('section > p').text()).toBe('test-introduction')
+  it('Should render the `introduction` property in an <Introduction>', () => {
+    expect(
+      wrapper
+        .find('section')
+        .find(Introduction)
+        .text()
+    ).toBe('test-introduction')
   })
 })

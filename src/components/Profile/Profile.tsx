@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ProfileImg, Heading, Introduction } from './styles'
 
 export type ProfileData = {
   contentfulProfile: {
@@ -50,10 +51,10 @@ const Profile: FunctionComponent = () => {
     <section>
       <picture>
         <source srcSet={profileImage.fluid.srcSet} />
-        <img src={profileImage.fluid.src} alt={profileImage.description} />
+        <ProfileImg src={profileImage.fluid.src} alt={profileImage.description} />
       </picture>
-      <h1>{heading}</h1>
-      <p>{introduction.introduction}</p>
+      <Heading>{heading}</Heading>
+      <Introduction>{introduction.introduction}</Introduction>
     </section>
   )
 }
