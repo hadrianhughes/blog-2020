@@ -2,33 +2,23 @@ import React, { FunctionComponent } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 export type ProfileData = {
-  data: {
-    contentfulProfile: {
-      profileImage: {
-        description: string
-        fluid: {
-          srcSet: string,
-          src: string
-        }
+  contentfulProfile: {
+    profileImage: {
+      description: string
+      fluid: {
+        srcSet: string,
+        src: string
       }
-      heading: string
-      introduction: {
-        introduction: string
-      }
+    }
+    heading: string
+    introduction: {
+      introduction: string
     }
   }
 }
 
 const Profile: FunctionComponent = () => {
-  const {
-    data: {
-      contentfulProfile: {
-        profileImage,
-        heading,
-        introduction
-      }
-    }
-  } = useStaticQuery(
+  const data: ProfileData = useStaticQuery(
     graphql`
       query ProfileQuery {
         contentfulProfile {
@@ -47,6 +37,14 @@ const Profile: FunctionComponent = () => {
       }
     `
   )
+
+  const {
+    contentfulProfile: {
+      profileImage,
+      heading,
+      introduction
+    }
+  } = data
 
   return (
     <section>
