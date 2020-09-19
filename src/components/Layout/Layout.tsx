@@ -8,6 +8,7 @@ const Layout: FunctionComponent = ({ children }) => (
     <GlobalStyles />
     <Header>
       <Profile />
+      <hr />
     </Header>
     <Main>
       {children}

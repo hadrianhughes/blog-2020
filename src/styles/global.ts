@@ -1,11 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
-import { baseFontSize } from './settings'
+import { rem } from './tools'
+import { baseFontSize, colors } from './settings'
 
 const Globals = createGlobalStyle`
   html, body {
     font-family: Merriweather;
     font-size: ${baseFontSize}px;
     margin: 0;
+  }
+
+  hr {
+    border: 1px solid ${colors.midGrey};
+    margin: ${rem(30)} 0;
   }
 
   @font-face {
