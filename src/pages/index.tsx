@@ -1,10 +1,28 @@
-import React from "react"
+import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-const Home = () => (
+const Home = ({ data }) => (
   <Layout>
-    <div>Hello world!</div>
+    <div>{data.contentfulProfile.introduction.introduction}</div>
   </Layout>
 )
+
+export const query = graphql`
+  query ProfileQuery {
+    contentfulProfile {
+      profileImage {
+        description
+        file {
+          url
+        }
+      }
+      heading
+      introduction {
+        introduction
+      }
+    }
+  }
+`
 
 export default Home

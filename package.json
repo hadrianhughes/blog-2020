@@ -14,6 +14,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.61",
     "gatsby-source-contentful": "^2.3.46",
     "react": "^16.12.0",
