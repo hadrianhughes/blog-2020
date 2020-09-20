@@ -8,6 +8,8 @@ import MobileBumper from '../MobileBumper'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
 
+type OpenState = 'profile' | 'menu' | null
+
 const Layout: FunctionComponent = ({ children }) => {
   const data: ProfileData = useStaticQuery(
     graphql`
@@ -37,18 +39,29 @@ const Layout: FunctionComponent = ({ children }) => {
   } = data
 
 
-  const [isOpen, setOpen] = useState(false)
+  const [openState, setOpenState] = useState<OpenState>(null)
   const isBigScreen = useMediaQuery({
     query: `(min-width: ${breakpoints.small + 1}px)`
   })
+
+  const toggleProfile = () => setOpenState(openState === 'profile' ? null : 'profile')
+  const toggleMenu = () => setOpenState(openState === 'menu' ? null : 'menu')
 
   return (
     <Container>
       <GlobalStyles />
       <Header isBigScreen={isBigScreen}>
-        {!isBigScreen ? <MobileBumper heading={heading} onToggle={() => setOpen(!isOpen)} /> : null}
         {
-          isBigScreen || isOpen
+          !isBigScreen
+            ? (
+              <MobileBumper
+                heading={heading}
+                onToggleProfile={toggleProfile}
+                onToggleMenu={toggleMenu} />
+            ) : null
+        }
+        {
+          isBigScreen || openState === 'profile'
             ? (
               <>
                 <Profile

@@ -83,11 +83,11 @@ describe('Layout component', () => {
     expect(wrapper.find(MobileBumper).prop('heading')).toBe('test-heading')
   })
 
-  it('Should render <Profile> on mobile after `onToggle` is clicked from <MobileBumper>', () => {
+  it('Should render <Profile> on mobile after `onToggleProfile` is clicked from <MobileBumper>', () => {
     useMediaQuery.mockImplementation(() => false)
     const wrapper = shallow(<Layout />)
 
-    wrapper.find(MobileBumper).prop('onToggle')()
+    wrapper.find(MobileBumper).prop('onToggleProfile')()
     wrapper.update()
 
     expect(wrapper.find(Profile).exists()).toBeTruthy()
