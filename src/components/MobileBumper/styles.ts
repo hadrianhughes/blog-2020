@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { rem } from '../../styles/tools'
 
 const buttonSize = rem(40)
+const profileImagePath = '/img/hady_icon.webp'
 
 export const Container = styled.section`
   align-items: center;
@@ -14,8 +15,7 @@ export const Heading = styled.h1`
 `
 
 export const ProfileButton = styled.button`
-  background-color: none;
-  background-image: url('/img/hady_icon.jpg');
+  background-image: url(${profileImagePath});
   background-size: cover;
   border: none;
   border-radius: 50%;
