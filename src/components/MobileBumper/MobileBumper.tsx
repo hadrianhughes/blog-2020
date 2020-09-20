@@ -14,8 +14,10 @@ const MobileBumper: FunctionComponent<MobileBumperProps> = ({
 }) => (
   <Container>
     <Heading>{heading}</Heading>
-    <button type="button" onClick={onToggleProfile} id="btn-profile">Profile</button>
-    <button type="button" onClick={onToggleMenu} id="btn-menu">Menu</button>
+    <div>
+      <button type="button" onClick={onToggleProfile} id="btn-profile">Profile</button>
+      <button type="button" onClick={onToggleMenu} id="btn-menu">Menu</button>
+    </div>
   </Container>
 )
 
