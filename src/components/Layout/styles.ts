@@ -11,7 +11,7 @@ export const Container = styled.div`
 `
 
 export const Header = styled.header`
-  padding: ${rem(20)};
+  padding: ${props => props.isBigScreen ? rem(20) : rem(10)};
 `
 
 export const Main = styled.main`

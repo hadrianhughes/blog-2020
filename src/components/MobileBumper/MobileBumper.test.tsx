@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import MobileBumper, { MobileBumperProps } from './MobileBumper'
+import { Heading, Container } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
@@ -8,11 +9,11 @@ const baseProps: MobileBumperProps = {
 }
 
 describe('MobileBumper component', () => {
-  it('Should render a <section>, <h1> and <button>', () => {
+  it('Should render a <Container>, <Heading> and <button>', () => {
     const wrapper = shallow(<MobileBumper {...baseProps} />)
 
-    expect(wrapper.find('section').exists()).toBeTruthy()
-    expect(wrapper.find('h1').exists()).toBeTruthy()
+    expect(wrapper.find(Container).exists()).toBeTruthy()
+    expect(wrapper.find(Heading).exists()).toBeTruthy()
     expect(wrapper.find('button').exists()).toBeTruthy()
   })
 
@@ -20,7 +21,7 @@ describe('MobileBumper component', () => {
     const heading = 'Test Heading'
     const wrapper = shallow(<MobileBumper {...baseProps} heading={heading} />)
 
-    expect(wrapper.find('h1').text()).toBe(heading)
+    expect(wrapper.find(Heading).text()).toBe(heading)
   })
 
   it('Should call the `onOpen` prop when the <button> is clicked', () => {

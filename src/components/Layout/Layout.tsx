@@ -45,7 +45,7 @@ const Layout: FunctionComponent = ({ children }) => {
   return (
     <Container>
       <GlobalStyles />
-      <Header>
+      <Header isBigScreen={isBigScreen}>
         {
           isBigScreen || isOpen
             ? (

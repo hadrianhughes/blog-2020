@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Heading, Container } from './styles'
 
 export interface MobileBumperProps {
   heading: string
@@ -6,10 +7,10 @@ export interface MobileBumperProps {
 }
 
 const MobileBumper: FunctionComponent<MobileBumperProps> = ({ heading, onOpen }) => (
-  <section>
-    <h1>{heading}</h1>
+  <Container>
+    <Heading>{heading}</Heading>
     <button type="button" onClick={onOpen}>Toggle</button>
-  </section>
+  </Container>
 )
 
 export default MobileBumper
