@@ -46,6 +46,7 @@ const Layout: FunctionComponent = ({ children }) => {
     <Container>
       <GlobalStyles />
       <Header isBigScreen={isBigScreen}>
+        {!isBigScreen ? <MobileBumper heading={heading} onToggle={() => setOpen(!isOpen)} /> : null}
         {
           isBigScreen || isOpen
             ? (
@@ -59,9 +60,7 @@ const Layout: FunctionComponent = ({ children }) => {
                 <hr />
               </>
             )
-            : (
-              <MobileBumper heading={heading} onOpen={() => setOpen(true)} />
-            )
+            : null
         }
       </Header>
       <Main>

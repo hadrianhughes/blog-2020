@@ -5,7 +5,7 @@ import { Heading, Container } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
-  onOpen: jest.fn()
+  onToggle: jest.fn()
 }
 
 describe('MobileBumper component', () => {
@@ -24,12 +24,12 @@ describe('MobileBumper component', () => {
     expect(wrapper.find(Heading).text()).toBe(heading)
   })
 
-  it('Should call the `onOpen` prop when the <button> is clicked', () => {
-    const onOpen = jest.fn()
-    const wrapper = shallow(<MobileBumper {...baseProps} onOpen={onOpen} />)
+  it('Should call the `onToggle` prop when the <button> is clicked', () => {
+    const onToggle = jest.fn()
+    const wrapper = shallow(<MobileBumper {...baseProps} onToggle={onToggle} />)
 
     wrapper.find('button').simulate('click')
 
-    expect(onOpen).toHaveBeenCalled()
+    expect(onToggle).toHaveBeenCalled()
   })
 })

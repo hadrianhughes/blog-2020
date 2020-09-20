@@ -3,13 +3,13 @@ import { Heading, Container } from './styles'
 
 export interface MobileBumperProps {
   heading: string
-  onOpen: () => void
+  onToggle: () => void
 }
 
-const MobileBumper: FunctionComponent<MobileBumperProps> = ({ heading, onOpen }) => (
+const MobileBumper: FunctionComponent<MobileBumperProps> = ({ heading, onToggle }) => (
   <Container>
     <Heading>{heading}</Heading>
-    <button type="button" onClick={onOpen}>Toggle</button>
+    <button type="button" onClick={onToggle}>Toggle</button>
   </Container>
 )
 
