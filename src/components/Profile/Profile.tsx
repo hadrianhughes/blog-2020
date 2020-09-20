@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { ProfileImg, Heading, Introduction } from './styles'
+import { ProfileImg, Heading, Introduction, Container } from './styles'
 
 export interface ProfileProps {
   imgSrc: string
@@ -17,14 +17,14 @@ const Profile: FunctionComponent<ProfileProps> = ({
   introduction
 }) => {
   return (
-    <section>
+    <Container>
       <picture>
         <source srcSet={imgSrcSet} />
         <ProfileImg src={imgSrc} alt={imgAlt} />
       </picture>
       <Heading>{heading}</Heading>
       <Introduction>{introduction}</Introduction>
-    </section>
+    </Container>
   )
 }
 

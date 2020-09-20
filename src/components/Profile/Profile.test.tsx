@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Profile, { ProfileProps } from './Profile'
-import { ProfileImg, Heading, Introduction } from './styles'
+import { ProfileImg, Heading, Introduction, Container } from './styles'
 
 const baseProps: ProfileProps = {
   imgSrc: 'img-src',
@@ -12,21 +12,31 @@ const baseProps: ProfileProps = {
 }
 
 describe('Profile component', () => {
-  it('Should render a <section>', () => {
+  it('Should render a <Container>', () => {
     const wrapper = shallow(<Profile {...baseProps} />)
-    expect(wrapper.find('section').exists()).toBeTruthy()
+    expect(wrapper.find(Container).exists()).toBeTruthy()
   })
 
-  it('Should render a picture tag inside the <section>', () => {
+  it('Should render a picture tag inside the <Container>', () => {
     const wrapper = shallow(<Profile {...baseProps} />)
-    expect(wrapper.find('section > picture').exists()).toBeTruthy()
+    expect(
+      wrapper
+        .find(Container)
+        .find('picture')
+        .exists()
+    ).toBeTruthy()
   })
 
   it('Should render the `imgSrcSet` prop into a <source>', () => {
     const imgSrcSet = 'test-src-set'
     const wrapper = shallow(<Profile {...baseProps} imgSrcSet={imgSrcSet} />)
 
-    expect(wrapper.find('section > picture > source').prop('srcSet')).toBe(imgSrcSet)
+    expect(
+      wrapper
+        .find(Container)
+        .find('picture > source')
+        .prop('srcSet')
+    ).toBe(imgSrcSet)
   })
 
   it('Should render the `imgSrc` prop into a <ProfileImg>', () => {
@@ -35,7 +45,8 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find('section > picture')
+        .find(Container)
+        .find('picture')
         .find(ProfileImg)
         .prop('src')
     ).toBe(imgSrc)
@@ -47,7 +58,8 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find('section > picture')
+        .find(Container)
+        .find('picture')
         .find(ProfileImg)
         .prop('alt')
     ).toBe(imgAlt)
@@ -59,7 +71,7 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find('section')
+        .find(Container)
         .find(Heading)
         .text()
     ).toBe(heading)
@@ -71,7 +83,7 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find('section')
+        .find(Container)
         .find(Introduction)
         .text()
     ).toBe(introduction)
