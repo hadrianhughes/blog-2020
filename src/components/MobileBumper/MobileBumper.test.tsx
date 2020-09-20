@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import MobileBumper, { MobileBumperProps } from './MobileBumper'
-import { Heading, Container, ProfileButton } from './styles'
+import { Heading, Container, ProfileButton, MenuButton } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
@@ -16,7 +16,7 @@ describe('MobileBumper component', () => {
     expect(wrapper.find(Container).exists()).toBeTruthy()
     expect(wrapper.find(Heading).exists()).toBeTruthy()
     expect(wrapper.find(ProfileButton).exists()).toBeTruthy()
-    expect(wrapper.find('button').exists()).toBeTruthy()
+    expect(wrapper.find(MenuButton).exists()).toBeTruthy()
   })
 
   it('Should render the `heading` prop in an <h1>', () => {
@@ -39,7 +39,7 @@ describe('MobileBumper component', () => {
     const onToggle = jest.fn()
     const wrapper = shallow(<MobileBumper {...baseProps} onToggleMenu={onToggle} />)
 
-    wrapper.find('button#btn-menu').simulate('click')
+    wrapper.find(MenuButton).simulate('click')
 
     expect(onToggle).toHaveBeenCalled()
   })
