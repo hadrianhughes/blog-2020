@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import MobileBumper, { MobileBumperProps } from './MobileBumper'
-import { Heading, Container } from './styles'
+import { Heading, Container, ProfileButton } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
@@ -10,12 +10,13 @@ const baseProps: MobileBumperProps = {
 }
 
 describe('MobileBumper component', () => {
-  it('Should render a <Container>, <Heading> and 2 <button> tags', () => {
+  it('Should render a <Container>, <Heading> and 2 buttons', () => {
     const wrapper = shallow(<MobileBumper {...baseProps} />)
 
     expect(wrapper.find(Container).exists()).toBeTruthy()
     expect(wrapper.find(Heading).exists()).toBeTruthy()
-    expect(wrapper.find('button').length).toBe(2)
+    expect(wrapper.find(ProfileButton).exists()).toBeTruthy()
+    expect(wrapper.find('button').exists()).toBeTruthy()
   })
 
   it('Should render the `heading` prop in an <h1>', () => {
@@ -25,11 +26,11 @@ describe('MobileBumper component', () => {
     expect(wrapper.find(Heading).text()).toBe(heading)
   })
 
-  it('Should call the `onToggleProfile` prop when the <button id="btn-profile"> is clicked', () => {
+  it('Should call the `onToggleProfile` prop when the <ProfileButton> is clicked', () => {
     const onToggle = jest.fn()
     const wrapper = shallow(<MobileBumper {...baseProps} onToggleProfile={onToggle} />)
 
-    wrapper.find('button#btn-profile').simulate('click')
+    wrapper.find(ProfileButton).simulate('click')
 
     expect(onToggle).toHaveBeenCalled()
   })

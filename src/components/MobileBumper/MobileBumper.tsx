@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Heading, Container } from './styles'
+import { Heading, Container, ProfileButton } from './styles'
 
 export interface MobileBumperProps {
   heading: string
@@ -15,7 +15,7 @@ const MobileBumper: FunctionComponent<MobileBumperProps> = ({
   <Container>
     <Heading>{heading}</Heading>
     <div>
-      <button type="button" onClick={onToggleProfile} id="btn-profile">Profile</button>
+      <ProfileButton type="button" onClick={onToggleProfile}>Profile</ProfileButton>
       <button type="button" onClick={onToggleMenu} id="btn-menu">Menu</button>
     </div>
   </Container>
