@@ -13,3 +13,10 @@ export type ProfileData = {
     }
   }
 }
+
+export type ContentfulArticleStub = {
+  node: {
+    title: string
+    createdAt: string
+  }
+}

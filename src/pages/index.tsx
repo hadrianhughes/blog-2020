@@ -2,18 +2,12 @@ import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
-
-type ContentfulArticle = {
-  node: {
-    title: string
-    createdAt: string
-  }
-}
+import { ContentfulArticleStub } from '../types'
 
 interface HomeProps {
   data: {
     allContentfulArticle: {
-      edges: ContentfulArticle[]
+      edges: ContentfulArticleStub[]
     }
   }
 }
