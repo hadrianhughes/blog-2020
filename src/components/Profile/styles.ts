@@ -8,7 +8,7 @@ export const ProfileImg = styled.img`
   width: 60%;
 `
 
-export const Heading = styled.h1`
+export const Heading = styled.h2`
   text-align: center;
 `
 
