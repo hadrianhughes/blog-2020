@@ -16,7 +16,7 @@ const Home: FunctionComponent<HomeProps> = ({ data }) => {
   const { allContentfulArticle } = data
   const resultItems: Result[] = allContentfulArticle.edges.map(({ node }) => ({
     title: node.title,
-    url: node.title,
+    path: node.path,
     publishedAt: node.createdAt
   }))
 
@@ -33,6 +33,7 @@ export const query = graphql`
       edges {
         node {
           title
+          path
           createdAt(formatString: "DD MMM YYYY")
         }
       }

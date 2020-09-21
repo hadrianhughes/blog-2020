@@ -8,7 +8,7 @@ import {
 
 export type Result = {
   title: string
-  url: string
+  path: string
   publishedAt: string
 }
 
@@ -20,8 +20,8 @@ const Results: FunctionComponent<ResultsProps> = ({ items }) => (
   <List>
     {
       items.map(item => (
-        <li key={item.url}>
-          <Link to={item.url}>
+        <li key={item.path}>
+          <Link to={item.path}>
             <ItemHeading>{item.title}</ItemHeading>
             <PublishedText>{item.publishedAt}</PublishedText>
           </Link>

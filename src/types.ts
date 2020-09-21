@@ -17,6 +17,7 @@ export type ProfileData = {
 export type ContentfulArticleStub = {
   node: {
     title: string
+    path: string
     createdAt: string
   }
 }

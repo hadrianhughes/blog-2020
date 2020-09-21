@@ -4,8 +4,8 @@ import Results, { Result } from './Results'
 import { List, ItemLink as Link, ItemHeading, PublishedText } from './styles'
 
 const items: Result[] = [
-  { title: 'Item 1', url: 'item-1', publishedAt: 'published-1' },
-  { title: 'Item 2', url: 'item-2', publishedAt: 'published-2' }
+  { title: 'Item 1', path: 'item-1', publishedAt: 'published-1' },
+  { title: 'Item 2', path: 'item-2', publishedAt: 'published-2' }
 ]
 
 const wrapper = shallow(<Results items={items} />)
@@ -23,7 +23,7 @@ describe('Results component', () => {
     items.forEach((item, i) => {
       const thisItem = wrapper.find(Link).at(i)
 
-      expect(thisItem.prop('to')).toBe(item.url)
+      expect(thisItem.prop('to')).toBe(item.path)
     })
   })
 
