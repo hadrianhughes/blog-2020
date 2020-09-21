@@ -3,8 +3,8 @@ require('dotenv').config()
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  host: 'cdn.contentful.com',
-  environment: 'master'
+  environment: process.env.CONTENTFUL_ENVIRONMENT || 'master',
+  host: 'cdn.contentful.com'
 }
 
 module.exports = {
