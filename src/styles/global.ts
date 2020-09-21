@@ -39,6 +39,11 @@ const Globals = createGlobalStyle`
     font-weight: bold;
     src: url('/fonts/Merriweather-BoldItalic.ttf');
   }
+
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.ttf');
+  }
 `
 
 export default Globals
