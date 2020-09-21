@@ -10,6 +10,7 @@ export const List = styled.ul`
 
 export const ItemHeading = styled.h3`
   font-size: 1.5rem;
+  margin: 0 0 ${rem(10)};
 `
 
 export const ItemLink = styled(Link)`
@@ -23,12 +24,17 @@ export const ItemLink = styled(Link)`
   text-decoration: none;
   width: 100%;
 
-  &:hover ${ItemHeading} {
-    text-decoration: underline;
+  &:hover {
+    border: 1px solid ${colors.black};
+
+    ${ItemHeading} {
+      text-decoration: underline;
+    }
   }
 `
 
 export const PublishedText = styled.p`
   color: ${colors.grey};
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
 `
