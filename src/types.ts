@@ -15,9 +15,15 @@ export type ProfileData = {
 }
 
 export type ContentfulArticleStub = {
-  node: {
-    title: string
-    path: string
-    createdAt: string
+  title: string
+  path: string
+  createdAt: string
+}
+
+export type ContentfulArticle = {
+  path: string
+  title: string
+  body: {
+    json: object
   }
 }

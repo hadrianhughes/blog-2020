@@ -7,7 +7,9 @@ import { ContentfulArticleStub } from '../types'
 interface HomeProps {
   data: {
     allContentfulArticle: {
-      edges: ContentfulArticleStub[]
+      edges: {
+        node: ContentfulArticleStub
+      }[]
     }
   }
 }

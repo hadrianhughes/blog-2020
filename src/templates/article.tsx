@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/Layout'
-import { ContentfulArticle } from './types'
+import Layout from '../components/Layout'
+import { ContentfulArticle } from '../types'
 
 interface ArticlePageProps {
   data: {
