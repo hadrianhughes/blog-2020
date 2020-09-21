@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { ContentfulArticle } from '../types'
+import { ArticleHeading } from './styles'
 
 interface ArticlePageProps {
   data: {
@@ -14,7 +15,7 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
+      <ArticleHeading>{title}</ArticleHeading>
     </Layout>
   )
 }
