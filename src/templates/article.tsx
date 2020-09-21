@@ -9,11 +9,15 @@ interface ArticlePageProps {
   }
 }
 
-const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => (
-  <Layout>
-    {data.contentfulArticle.title}
-  </Layout>
-)
+const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
+  const { title } = data.contentfulArticle
+
+  return (
+    <Layout>
+      <h1>{title}</h1>
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query ArticleContentByPath($pagePath: String!) {
