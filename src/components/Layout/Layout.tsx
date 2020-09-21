@@ -10,26 +10,26 @@ import { Container, Header, Main } from './styles'
 
 type OpenState = 'profile' | 'menu' | null
 
-const Layout: FunctionComponent = ({ children }) => {
-  const data: ProfileData = useStaticQuery(
-    graphql`
-      query ProfileQuery {
-        contentfulProfile {
-          profileImage {
-            description
-            fluid(toFormat: WEBP) {
-              srcSet
-              src
-            }
-          }
-          heading
-          introduction {
-            introduction
-          }
+const profileQuery = graphql`
+  query ProfileQuery {
+    contentfulProfile {
+      profileImage {
+        description
+        fluid(toFormat: WEBP) {
+          srcSet
+          src
         }
       }
-    `
-  )
+      heading
+      introduction {
+        introduction
+      }
+    }
+  }
+`
+
+const Layout: FunctionComponent = ({ children }) => {
+  const data: ProfileData = useStaticQuery(profileQuery)
   const {
     contentfulProfile: {
       profileImage,
