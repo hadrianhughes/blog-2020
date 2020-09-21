@@ -3,10 +3,14 @@ import { minWidth, rem } from '../../styles/tools'
 import { colors } from '../../styles/settings'
 
 export const Container = styled.div`
-  ${minWidth('small')} {
+  ${minWidth('medium')} {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
+    grid-template-columns: 1fr 2.5fr;
     min-height: 100vh;
+  }
+
+  ${minWidth('large')} {
+    grid-template-columns: 1fr 3.5fr;
   }
 `
 

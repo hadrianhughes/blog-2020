@@ -41,7 +41,7 @@ const Layout: FunctionComponent = ({ children }) => {
 
   const [openState, setOpenState] = useState<OpenState>(null)
   const isBigScreen = useMediaQuery({
-    query: `(min-width: ${breakpoints.small + 1}px)`
+    query: `(min-width: ${breakpoints.medium + 1}px)`
   })
 
   const toggleProfile = () => setOpenState(openState === 'profile' ? null : 'profile')
