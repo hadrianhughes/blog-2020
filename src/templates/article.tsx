@@ -15,7 +15,9 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
 
   return (
     <Layout>
-      <ArticleHeading>{title}</ArticleHeading>
+      <article>
+        <ArticleHeading>{title}</ArticleHeading>
+      </article>
     </Layout>
   )
 }
