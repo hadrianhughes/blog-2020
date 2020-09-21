@@ -10,5 +10,6 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: '',
   },
-  setupFilesAfterEnv: ['<rootDir>/setupTests.ts']
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+  collectCoverageFrom: ['src/**/*.tsx', 'src/**/*.ts', '!src/**/styles.tsx', '!src/**/styles.ts', '!src/**/index.ts']
 }

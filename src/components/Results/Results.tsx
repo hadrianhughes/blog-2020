@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'gatsby'
+import { List, ItemLink as Link } from './styles'
 
 export type Result = {
   title: string
@@ -11,7 +11,7 @@ interface ResultsProps {
 }
 
 const Results: FunctionComponent<ResultsProps> = ({ items }) => (
-  <ul>
+  <List>
     {
       items.map(item => (
         <li key={item.url}>
@@ -19,7 +19,7 @@ const Results: FunctionComponent<ResultsProps> = ({ items }) => (
         </li>
       ))
     }
-  </ul>
+  </List>
 )
 
 export default Results
