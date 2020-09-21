@@ -9,6 +9,7 @@ export const breakpoints = {
 }
 
 export const colors = {
+  parchment: '#fdfcf7',
   blueGrey: '#fafafb',
   lightGrey: '#eaeaea'
 }

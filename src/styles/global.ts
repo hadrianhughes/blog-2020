@@ -4,6 +4,7 @@ import { baseFontSize, colors } from './settings'
 
 const Globals = createGlobalStyle`
   html, body {
+    background: ${colors.parchment};
     font-family: Merriweather;
     font-size: ${baseFontSize}px;
     margin: 0;
