@@ -9,10 +9,14 @@ Array [
       test heading
     </h1>
   </styled.h1>,
-  <p
+  <styled.p
     key="0"
   >
-    Hello World
-  </p>,
+    <p
+      className="sc-dlnjPT dkPOOf"
+    >
+      Hello World
+    </p>
+  </styled.p>,
 ]
 `;
