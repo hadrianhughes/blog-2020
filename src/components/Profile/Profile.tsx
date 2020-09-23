@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Link } from 'gatsby'
 import { ProfileImg, Heading, Introduction, Container } from './styles'
 
 export interface ProfileProps {
@@ -18,10 +19,12 @@ const Profile: FunctionComponent<ProfileProps> = ({
 }) => {
   return (
     <Container>
-      <picture>
-        <source srcSet={imgSrcSet} />
-        <ProfileImg src={imgSrc} alt={imgAlt} />
-      </picture>
+      <Link to="/">
+        <picture>
+          <source srcSet={imgSrcSet} />
+          <ProfileImg src={imgSrc} alt={imgAlt} />
+        </picture>
+      </Link>
       <Heading>{heading}</Heading>
       <Introduction>{introduction}</Introduction>
     </Container>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Link } from 'gatsby'
 import Profile, { ProfileProps } from './Profile'
 import { ProfileImg, Heading, Introduction, Container } from './styles'
 
@@ -17,11 +18,18 @@ describe('Profile component', () => {
     expect(wrapper.find(Container).exists()).toBeTruthy()
   })
 
-  it('Should render a picture tag inside the <Container>', () => {
+  it('Should render a <Link> to the homepage', () => {
+    const wrapper = shallow(<Profile {...baseProps} />)
+
+    expect(wrapper.find(Link).exists()).toBeTruthy()
+    expect(wrapper.find(Link).prop('to')).toBe('/')
+  })
+
+  it('Should render a picture tag inside the <Link>', () => {
     const wrapper = shallow(<Profile {...baseProps} />)
     expect(
       wrapper
-        .find(Container)
+        .find(Link)
         .find('picture')
         .exists()
     ).toBeTruthy()
@@ -33,7 +41,6 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find(Container)
         .find('picture > source')
         .prop('srcSet')
     ).toBe(imgSrcSet)
@@ -45,7 +52,6 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find(Container)
         .find('picture')
         .find(ProfileImg)
         .prop('src')
@@ -58,7 +64,6 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find(Container)
         .find('picture')
         .find(ProfileImg)
         .prop('alt')
@@ -71,7 +76,6 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find(Container)
         .find(Heading)
         .text()
     ).toBe(heading)
@@ -83,7 +87,6 @@ describe('Profile component', () => {
 
     expect(
       wrapper
-        .find(Container)
         .find(Introduction)
         .text()
     ).toBe(introduction)
