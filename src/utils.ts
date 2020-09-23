@@ -1,4 +1,4 @@
-export const queryToJson = (query: string): object => {
+export const queryToJson = (query: string): { [key: string]: any } => {
   // ?x=y -> Minimum 4
   if (query.length < 4) return {}
 

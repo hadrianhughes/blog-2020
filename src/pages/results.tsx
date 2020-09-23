@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import { ContentfulArticleStub } from '../types'
+import { queryToJson } from '../utils'
 
 interface ResultsPageProps {
   data: {
@@ -21,7 +22,9 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
     path: node.path,
     publishedAt: node.createdAt
   }))
-  console.log(window.location)
+
+  const { tag } = queryToJson(window.location.search)
+  console.log(tag)
 
   return (
     <Layout>
