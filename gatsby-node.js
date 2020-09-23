@@ -8,32 +8,27 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulArticle {
         edges {
           node {
-            title
             path
-            createdAt(formatString: "DD MMM YYYY")
-            body {
-              json
-            }
           }
         }
       }
     }
   `)
 
-  const articles =
+  const articlePaths =
     pagesQuery
       .data
       .allContentfulArticle
       .edges
-      .map(({ node }) => node)
+      .map(({ node }) => node.path)
 
-  articles.forEach(article => {
+  articlePaths.forEach(articlePath => {
     createPage(
       {
-        path: article.path,
+        path: articlePath,
         component: path.resolve('./src/templates/article.tsx'),
         context: {
-          pagePath: article.path
+          pagePath: articlePath
         }
       }
     )
