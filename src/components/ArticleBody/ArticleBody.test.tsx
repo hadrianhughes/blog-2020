@@ -1,6 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
+import toJson from 'enzyme-to-json'
 import ArticleBody from './ArticleBody'
 
 const data: Document = {
@@ -23,13 +24,13 @@ const data: Document = {
 }
 
 describe('ArticleBody component', () => {
-  const wrapper = shallow(<ArticleBody data={data} />)
+  const wrapper = mount(<ArticleBody data={data} />)
 
   it('Should render a <section>', () => {
     expect(wrapper.find('section').exists()).toBeTruthy()
   })
 
   it('Should pass the `data` prop to the `documentToReactComponents` function', () => {
-    expect(wrapper.find('section').children()).toMatchSnapshot()
+    expect(toJson(wrapper.find('section').children())).toMatchSnapshot()
   })
 })
