@@ -21,7 +21,7 @@ const Results: FunctionComponent<ResultsProps> = ({ items }) => (
     {
       items.map(item => (
         <li key={item.path}>
-          <Link to={item.path}>
+          <Link to={'/' + item.path}>
             <ItemHeading>{item.title}</ItemHeading>
             <PublishedText>{item.publishedAt}</PublishedText>
           </Link>

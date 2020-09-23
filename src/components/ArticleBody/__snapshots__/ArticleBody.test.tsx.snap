@@ -4,7 +4,7 @@ exports[`ArticleBody component Should pass the \`data\` prop to the \`documentTo
 Array [
   <styled.h1>
     <h1
-      className="sc-gtssRu hiTVzU"
+      className="sc-gtssRu eeHGoB"
     >
       test heading
     </h1>

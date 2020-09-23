@@ -23,7 +23,7 @@ describe('Results component', () => {
     items.forEach((item, i) => {
       const thisItem = wrapper.find(Link).at(i)
 
-      expect(thisItem.prop('to')).toBe(item.path)
+      expect(thisItem.prop('to')).toBe('/' + item.path)
     })
   })
 
