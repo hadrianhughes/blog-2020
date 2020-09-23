@@ -23,8 +23,13 @@ const data: Document = {
 }
 
 describe('ArticleBody component', () => {
+  const wrapper = shallow(<ArticleBody data={data} />)
+
+  it('Should render a <section>', () => {
+    expect(wrapper.find('section').exists()).toBeTruthy()
+  })
+
   it('Should pass the `data` prop to the `documentToReactComponents` function', () => {
-    const wrapper = shallow(<ArticleBody data={data} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.find('section').children()).toMatchSnapshot()
   })
 })

@@ -7,7 +7,9 @@ interface ArticleBodyProps {
 }
 
 const ArticleBody: FunctionComponent<ArticleBodyProps> = ({ data }) => (
-  <>{documentToReactComponents(data)}</>
+  <section>
+    {documentToReactComponents(data)}
+  </section>
 )
 
 export default ArticleBody
