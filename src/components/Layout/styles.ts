@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { minWidth, rem } from '../../styles/tools'
-import { colors } from '../../styles/settings'
 
 export const Container = styled.div`
   ${minWidth('medium')} {
