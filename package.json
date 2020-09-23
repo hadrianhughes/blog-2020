@@ -16,6 +16,8 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-types": "^14.1.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.61",
     "gatsby-source-contentful": "^2.3.46",

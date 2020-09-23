@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import ArticleBody from '../components/ArticleBody'
 import { ContentfulArticle } from '../types'
 import { ArticleHeading } from './styles'
 
@@ -11,12 +12,13 @@ interface ArticlePageProps {
 }
 
 const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
-  const { title } = data.contentfulArticle
+  const { title, body } = data.contentfulArticle
 
   return (
     <Layout>
       <article>
         <ArticleHeading>{title}</ArticleHeading>
+        <ArticleBody data={body.json} />
       </article>
     </Layout>
   )

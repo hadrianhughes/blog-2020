@@ -1,3 +1,5 @@
+import { Document } from '@contentful/rich-text-types'
+
 export type ProfileData = {
   contentfulProfile: {
     profileImage: {
@@ -24,6 +26,6 @@ export type ContentfulArticle = {
   path: string
   title: string
   body: {
-    json: object
+    json: Document
   }
 }
