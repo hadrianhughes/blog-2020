@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ArticleBody from '../components/ArticleBody'
 import { ContentfulArticle } from '../types'
-import { ArticleHeading } from './styles'
 
 interface ArticlePageProps {
   data: {
@@ -17,8 +16,7 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
   return (
     <Layout>
       <article>
-        <ArticleHeading>{title}</ArticleHeading>
-        <ArticleBody data={body.json} />
+        <ArticleBody heading={title} data={body.json} />
       </article>
     </Layout>
   )

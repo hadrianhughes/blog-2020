@@ -3,6 +3,7 @@ import { mount } from 'enzyme'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
 import toJson from 'enzyme-to-json'
 import ArticleBody from './ArticleBody'
+import { Container, Heading } from './styles'
 
 const data: Document = {
   data: {},
@@ -24,10 +25,16 @@ const data: Document = {
 }
 
 describe('ArticleBody component', () => {
-  const wrapper = mount(<ArticleBody data={data} />)
+  const heading = 'test heading'
+  const wrapper = mount(<ArticleBody data={data} heading={heading} />)
 
-  it('Should render a <section>', () => {
-    expect(wrapper.find('section').exists()).toBeTruthy()
+  it('Should render a <Container>', () => {
+    expect(wrapper.find(Container).exists()).toBeTruthy()
+  })
+
+  it('Should render the `heading` prop in a <Heading>', () => {
+    expect(wrapper.find(Heading).exists()).toBeTruthy()
+    expect(wrapper.find(Heading).text()).toBe(heading)
   })
 
   it('Should pass the `data` prop to the `documentToReactComponents` function', () => {
