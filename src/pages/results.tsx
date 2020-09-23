@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import { ContentfulArticleStub } from '../types'
-import { queryToJson } from '../utils'
+import { queryToJson, filterByTag } from '../lib'
 
 interface ResultsPageProps {
   data: {
@@ -20,15 +20,19 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
   const resultItems: Result[] = allContentfulArticle.edges.map(({ node }) => ({
     title: node.title,
     path: node.path,
-    publishedAt: node.createdAt
+    publishedAt: node.createdAt,
+    tags: node.tags
   }))
 
-  const { tag } = queryToJson(window.location.search)
-  console.log(tag)
+  const { tag: queryTag } = queryToJson(window.location.search)
+
+  const filteredItems = queryTag
+    ? filterByTag(resultItems, queryTag)
+    : resultItems
 
   return (
     <Layout>
-      <Results items={resultItems} />
+      <Results items={filteredItems} />
     </Layout>
   )
 }
@@ -41,6 +45,10 @@ export const query = graphql`
           title
           path
           createdAt(formatString: "DD MMM YYYY")
+          tags {
+            identifier
+            name
+          }
         }
       }
     }

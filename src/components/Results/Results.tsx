@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Tag } from '../../types'
 import {
   List,
   ItemLink as Link,
@@ -10,6 +11,7 @@ export type Result = {
   title: string
   path: string
   publishedAt: string
+  tags: Tag[]
 }
 
 interface ResultsProps {

@@ -16,10 +16,16 @@ export type ProfileData = {
   }
 }
 
+export type Tag = {
+  identifier: string
+  name: string
+}
+
 export type ContentfulArticleStub = {
   title: string
   path: string
   createdAt: string
+  tags: Tag[]
 }
 
 export type ContentfulArticle = {

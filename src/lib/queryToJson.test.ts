@@ -1,4 +1,4 @@
-import { queryToJson } from './utils'
+import queryToJson from './queryToJson'
 
 describe('queryToJson function', () => {
   it('Should accept an empty query and return an empty object', () => {
