@@ -21,6 +21,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
     path: node.path,
     publishedAt: node.createdAt
   }))
+  console.log(window.location)
 
   return (
     <Layout>
