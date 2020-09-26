@@ -1,6 +1,7 @@
 export const baseFontSize = 16
 
 export type Breakpoint = 'small' | 'medium' | 'large'
+export type FontSize = 'body' | 'large' | 'headline'
 
 export const breakpoints = {
   small: 375,
@@ -15,4 +16,10 @@ export const colors = {
   blueGrey: '#fafafb',
   parchment: '#fdfcf7',
   lightGrey: '#eaeaea'
+}
+
+export const fontSizes = {
+  body: 1,
+  large: 1.5,
+  headline: 3
 }

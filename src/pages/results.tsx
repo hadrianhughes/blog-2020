@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
+import Text from '../components/Text'
 import { ContentfulArticleStub } from '../types'
 import { queryToJson, filterByTag } from '../lib'
 
@@ -32,7 +33,11 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
 
   return (
     <Layout>
-      <Results items={filteredItems} />
+      {
+        filteredItems.length > 0
+          ? <Results items={filteredItems} />
+          : <Text tag="p" align="center" size="large">No Results</Text>
+      }
     </Layout>
   )
 }
