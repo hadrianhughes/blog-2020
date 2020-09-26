@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { minWidth, rem } from '../../styles/tools'
+import { spacings } from '../../styles/settings'
 
 export const ProfileImg = styled.img`
   border-radius: 50%;
@@ -9,7 +10,7 @@ export const ProfileImg = styled.img`
 `
 
 export const Container = styled.section`
-  margin-top: ${rem(30)};
+  margin-top: ${rem(spacings.large)};
 
   ${minWidth('small')} {
     margin-top: 0;

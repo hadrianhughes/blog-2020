@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { rem } from '../../styles/tools'
-import { colors } from '../../styles/settings'
+import { colors, spacings } from '../../styles/settings'
 import Text from '../Text'
 
 export const List = styled.ul`
@@ -10,7 +10,7 @@ export const List = styled.ul`
 `
 
 export const ItemHeading = styled(Text)`
-  margin: 0 0 ${rem(10)};
+  margin: 0 0 ${rem(spacings.small)};
 `
 
 export const ItemLink = styled(Link)`
@@ -20,7 +20,7 @@ export const ItemLink = styled(Link)`
   box-sizing: border-box;
   color: ${colors.black};
   display: block;
-  padding: ${rem(20, 30)};
+  padding: ${rem(spacings.medium, spacings.large)};
   text-decoration: none;
   width: 100%;
 

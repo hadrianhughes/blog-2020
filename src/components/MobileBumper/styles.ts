@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { rem } from '../../styles/tools'
+import { spacings } from '../../styles/settings'
 
 const buttonSize = rem(40)
 const profileImagePath = '/img/hady_icon.webp'
@@ -18,7 +19,7 @@ const buttonStyles = css`
   border: none;
   border-radius: 50%;
   height: ${buttonSize};
-  margin-right: ${rem(10)};
+  margin-right: ${rem(spacings.small)};
   text-indent: 9999px;
   width: ${buttonSize};
 `

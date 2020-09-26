@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { minWidth, rem } from '../../styles/tools'
+import { spacings } from '../../styles/settings'
 
 export const Container = styled.div`
   ${minWidth('large')} {
@@ -10,9 +11,9 @@ export const Container = styled.div`
 `
 
 export const Header = styled.header`
-  padding: ${props => props.isBigScreen ? rem(20) : rem(10)};
+  padding: ${props => props.isBigScreen ? rem(spacings.medium) : rem(spacings.small)};
 `
 
 export const Main = styled.main`
-  padding: ${rem(20)};
+  padding: ${rem(spacings.medium)};
 `

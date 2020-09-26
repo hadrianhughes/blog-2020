@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { rem } from './tools'
-import { baseFontSize, colors } from './settings'
+import { baseFontSize, colors, spacings } from './settings'
 
 const Globals = createGlobalStyle`
   html, body {
@@ -12,7 +12,7 @@ const Globals = createGlobalStyle`
 
   hr {
     border: 1px solid ${colors.lightGrey};
-    margin: ${rem(30)} auto;
+    margin: ${rem(spacings.large)} auto;
     width: 80%;
   }
 
