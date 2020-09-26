@@ -2,8 +2,9 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
 import toJson from 'enzyme-to-json'
+import Text from '../Text'
 import ArticleBody from './ArticleBody'
-import { Container, Heading } from './styles'
+import { Container } from './styles'
 
 const data: Document = {
   data: {},
@@ -32,9 +33,14 @@ describe('ArticleBody component', () => {
     expect(wrapper.find(Container).exists()).toBeTruthy()
   })
 
-  it('Should render the `heading` prop in a <Heading>', () => {
-    expect(wrapper.find(Heading).exists()).toBeTruthy()
-    expect(wrapper.find(Heading).text()).toBe(heading)
+  it('Should render the `heading` prop in a <Text>', () => {
+    expect(wrapper.find(Text).exists()).toBeTruthy()
+    expect(
+      wrapper
+        .find(Text)
+        .first()
+        .prop('children')
+    ).toBe(heading)
   })
 
   it('Should pass the `data` prop to the `documentToReactComponents` function', () => {

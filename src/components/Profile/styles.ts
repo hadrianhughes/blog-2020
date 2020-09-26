@@ -8,14 +8,6 @@ export const ProfileImg = styled.img`
   width: 60%;
 `
 
-export const Heading = styled.h2`
-  text-align: center;
-`
-
-export const Introduction = styled.p`
-  text-align: justify;
-`
-
 export const Container = styled.section`
   margin-top: ${rem(30)};
 

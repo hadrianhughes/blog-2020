@@ -11,10 +11,6 @@ export const Container = styled.section`
   justify-content: space-between;
 `
 
-export const Heading = styled.h1`
-  margin: 0;
-`
-
 const buttonStyles = css`
   background: none;
   background-position: center;

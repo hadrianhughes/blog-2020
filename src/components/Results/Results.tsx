@@ -3,9 +3,10 @@ import { Tag } from '../../types'
 import {
   List,
   ItemLink as Link,
-  ItemHeading,
-  PublishedText
+  PublishedText,
+  ItemHeading
 } from './styles'
+import Text from '../Text'
 
 export type Result = {
   title: string
@@ -24,8 +25,8 @@ const Results: FunctionComponent<ResultsProps> = ({ items }) => (
       items.map(item => (
         <li key={item.path}>
           <Link to={'/' + item.path}>
-            <ItemHeading>{item.title}</ItemHeading>
-            <PublishedText>{item.publishedAt}</PublishedText>
+            <ItemHeading tag="h3" size="large">{item.title}</ItemHeading>
+            <PublishedText noSpace>{item.publishedAt}</PublishedText>
           </Link>
         </li>
       ))

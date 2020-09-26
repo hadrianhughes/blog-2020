@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Container, Heading, Paragraph } from './styles'
+import Text from '../Text'
+import { Container } from './styles'
 
 interface ArticleBodyProps {
   heading: string
@@ -10,13 +11,13 @@ interface ArticleBodyProps {
 
 const options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <Paragraph>{children}</Paragraph>
+    [BLOCKS.PARAGRAPH]: (_, children) => <Text tag="p" align="justify">{children}</Text>
   }
 }
 
 const ArticleBody: FunctionComponent<ArticleBodyProps> = ({ heading, data }) => (
   <Container>
-    <Heading>{heading}</Heading>
+    <Text tag="h1" size="headline">{heading}</Text>
     {documentToReactComponents(data, options)}
   </Container>
 )

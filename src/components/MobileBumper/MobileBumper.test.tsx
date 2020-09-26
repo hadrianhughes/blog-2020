@@ -1,7 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import Text from '../Text'
 import MobileBumper, { MobileBumperProps } from './MobileBumper'
-import { Heading, Container, ProfileButton, MenuButton } from './styles'
+import { Container, ProfileButton, MenuButton } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
@@ -14,7 +15,7 @@ describe('MobileBumper component', () => {
     const wrapper = shallow(<MobileBumper {...baseProps} />)
 
     expect(wrapper.find(Container).exists()).toBeTruthy()
-    expect(wrapper.find(Heading).exists()).toBeTruthy()
+    expect(wrapper.find(Text).exists()).toBeTruthy()
     expect(wrapper.find(ProfileButton).exists()).toBeTruthy()
     expect(wrapper.find(MenuButton).exists()).toBeTruthy()
   })
@@ -23,7 +24,7 @@ describe('MobileBumper component', () => {
     const heading = 'Test Heading'
     const wrapper = shallow(<MobileBumper {...baseProps} heading={heading} />)
 
-    expect(wrapper.find(Heading).text()).toBe(heading)
+    expect(wrapper.find(Text).prop('children')).toBe(heading)
   })
 
   it('Should call the `onToggleProfile` prop when the <ProfileButton> is clicked', () => {

@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { rem } from '../../styles/tools'
 import { colors } from '../../styles/settings'
+import Text from '../Text'
 
 export const List = styled.ul`
   list-style-type: none;
   padding: 0;
 `
 
-export const ItemHeading = styled.h3`
-  font-size: 1.5rem;
+export const ItemHeading = styled(Text)`
   margin: 0 0 ${rem(10)};
 `
 
@@ -33,8 +33,7 @@ export const ItemLink = styled(Link)`
   }
 `
 
-export const PublishedText = styled.p`
+export const PublishedText = styled(Text)`
   color: ${colors.grey};
   font-family: 'Open Sans', sans-serif;
-  margin: 0;
 `

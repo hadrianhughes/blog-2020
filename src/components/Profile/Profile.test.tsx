@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Link } from 'gatsby'
+import Text from '../Text'
 import Profile, { ProfileProps } from './Profile'
-import { ProfileImg, Heading, Introduction, Container } from './styles'
+import { ProfileImg, Container } from './styles'
 
 const baseProps: ProfileProps = {
   imgSrc: 'img-src',
@@ -70,25 +71,27 @@ describe('Profile component', () => {
     ).toBe(imgAlt)
   })
 
-  it('Should render the `heading` property in a <Heading>', () => {
+  it('Should render the `heading` property in a <Text>', () => {
     const heading = 'test-heading'
     const wrapper = shallow(<Profile {...baseProps} heading={heading} />)
 
     expect(
       wrapper
-        .find(Heading)
-        .text()
+        .find(Text)
+        .first()
+        .prop('children')
     ).toBe(heading)
   })
 
-  it('Should render the `introduction` property in an <Introduction>', () => {
+  it('Should render the `introduction` property in an <Text>', () => {
     const introduction = 'test-introduction'
     const wrapper = shallow(<Profile {...baseProps} introduction={introduction} />)
 
     expect(
       wrapper
-        .find(Introduction)
-        .text()
+        .find(Text)
+        .last()
+        .prop('children')
     ).toBe(introduction)
   })
 })

@@ -2,21 +2,37 @@
 
 exports[`ArticleBody component Should pass the \`data\` prop to the \`documentToReactComponents\` function 1`] = `
 Array [
-  <styled.h1>
-    <h1
-      className="sc-gtssRu eeHGoB"
-    >
-      test heading
-    </h1>
-  </styled.h1>,
-  <styled.p
-    key="0"
+  <Text
+    size="headline"
+    tag="h1"
   >
-    <p
-      className="sc-dlnjPT dkPOOf"
+    <styled.p
+      as="h1"
+      size="headline"
     >
-      Hello World
-    </p>
-  </styled.p>,
+      <h1
+        className="sc-bdnylx jHYhGC"
+        size="headline"
+      >
+        test heading
+      </h1>
+    </styled.p>
+  </Text>,
+  <Text
+    align="justify"
+    key="0"
+    tag="p"
+  >
+    <styled.p
+      align="justify"
+      as="p"
+    >
+      <p
+        className="sc-bdnylx fVpUmO"
+      >
+        Hello World
+      </p>
+    </styled.p>
+  </Text>,
 ]
 `;
