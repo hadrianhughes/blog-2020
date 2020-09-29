@@ -1,3 +1,4 @@
+import '../../__mocks__/gatsby.mock'
 import React from 'react'
 import { render } from '@testing-library/react'
 import TagSelector from './TagSelector'
@@ -20,8 +21,21 @@ describe('TagSelector component', () => {
     const { container } = render(<TagSelector tags={tags} />)
     const items = container.querySelectorAll('li')
 
+    expect(items.length).toBe(tags.length)
+
     items.forEach((item, index) => {
-      expect(item.innerHTML).toBe(tags[index].name)
+      expect(item.innerHTML.includes(tags[index].name)).toBeTruthy()
+    })
+  })
+
+  it('Should render an <a> inside each item leading to the results page', () => {
+    const { container } = render(<TagSelector tags={tags} />)
+    const items = container.querySelectorAll('li a')
+
+    expect(items.length).toBe(tags.length)
+
+    items.forEach((item, index) => {
+      expect(item).toHaveAttribute('href', '/results?tag=' + tags[index].identifier)
     })
   })
 })
