@@ -1,38 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArticleBody component Should pass the \`data\` prop to the \`documentToReactComponents\` function 1`] = `
-Array [
-  <Text
-    size="headline"
-    tag="h1"
-  >
-    <styled.p
-      as="h1"
-      size="headline"
-    >
-      <h1
-        className="sc-bdnylx jHYhGC"
-        size="headline"
-      >
-        test heading
-      </h1>
-    </styled.p>
-  </Text>,
-  <Text
-    align="justify"
-    key="0"
-    tag="p"
-  >
-    <styled.p
-      align="justify"
-      as="p"
-    >
-      <p
-        className="sc-bdnylx fVpUmO"
-      >
-        Hello World
-      </p>
-    </styled.p>
-  </Text>,
-]
-`;
+exports[`ArticleBody component Should pass the \`data\` prop to the \`documentToReactComponents\` function 1`] = `"<h1 class=\\"sc-bdnylx jHYhGC\\">test heading</h1><p class=\\"sc-bdnylx fVpUmO\\">Hello World</p>"`;

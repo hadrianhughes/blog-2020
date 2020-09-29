@@ -19,7 +19,7 @@ const Profile: FunctionComponent<ProfileProps> = ({
   introduction
 }) => {
   return (
-    <Container>
+    <Container data-testid="profile">
       <Link to="/">
         <picture>
           <source srcSet={imgSrcSet} />

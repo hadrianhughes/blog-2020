@@ -1,34 +1,27 @@
+import '../../__mocks__/gatsby.mock'
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import Text from './Text'
-import { StyledText } from './styles'
 
 describe('Text component', () => {
-  it('Should render a <StyledText>', () => {
-    const wrapper = shallow(<Text />)
+  it('Should render a <p>', () => {
+    const { container } = render(<Text />)
 
-    expect(wrapper.find(StyledText).exists()).toBeTruthy()
+    expect(container.querySelector('p')).toBeTruthy()
   })
 
   it('Should the element passed in the `tag` prop', () => {
-    const span = mount(<Text tag="span" />)
-    const article = mount(<Text tag="article" />)
+    const { container: span } = render(<Text tag="span" />)
+    const { container: article } = render(<Text tag="article" />)
 
-    expect(span.find('span').exists()).toBeTruthy()
-    expect(article.find('article').exists()).toBeTruthy()
-  })
-
-  it('Should forward the `className` prop to the element', () => {
-    const className = 'test-class'
-    const wrapper = shallow(<Text className={className} />)
-
-    expect(wrapper.find(StyledText).prop('className')).toBe(className)
+    expect(span.querySelector('span')).toBeTruthy()
+    expect(article.querySelector('article')).toBeTruthy()
   })
 
   it('Should render the `children` prop as children', () => {
     const childNode = 'test node'
-    const wrapper = shallow(<Text>{childNode}</Text>)
+    const { queryByText } = render(<Text>{childNode}</Text>)
 
-    expect(wrapper.find(StyledText).text()).toBe(childNode)
+    expect(queryByText(childNode)).toBeTruthy()
   })
 })

@@ -13,7 +13,7 @@ const MobileBumper: FunctionComponent<MobileBumperProps> = ({
   onToggleProfile,
   onToggleMenu
 }) => (
-  <Container>
+  <Container data-testid="mobile-bumper">
     <Text tag="h2" size="large" noSpace>{heading}</Text>
     <div>
       <ProfileButton type="button" onClick={onToggleProfile}>Profile</ProfileButton>

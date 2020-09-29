@@ -1,10 +1,7 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
-import toJson from 'enzyme-to-json'
-import Text from '../Text'
 import ArticleBody from './ArticleBody'
-import { Container } from './styles'
 
 const data: Document = {
   data: {},
@@ -27,23 +24,24 @@ const data: Document = {
 
 describe('ArticleBody component', () => {
   const heading = 'test heading'
-  const wrapper = mount(<ArticleBody data={data} heading={heading} />)
 
   it('Should render a <Container>', () => {
-    expect(wrapper.find(Container).exists()).toBeTruthy()
+    const { container } = render(<ArticleBody data={data} heading={heading} />)
+    expect(container.querySelector('section')).toBeTruthy()
   })
 
-  it('Should render the `heading` prop in a <Text>', () => {
-    expect(wrapper.find(Text).exists()).toBeTruthy()
+  it('Should render the `heading` prop in an <h1>', () => {
+    const { container } = render(<ArticleBody data={data} heading={heading} />)
+    expect(container.querySelector('h1')).toBeTruthy()
     expect(
-      wrapper
-        .find(Text)
-        .first()
-        .prop('children')
+      container
+        .querySelector('h1')
+        .innerHTML
     ).toBe(heading)
   })
 
   it('Should pass the `data` prop to the `documentToReactComponents` function', () => {
-    expect(toJson(wrapper.find('section').children())).toMatchSnapshot()
+    const { container } = render(<ArticleBody data={data} heading={heading} />)
+    expect(container.querySelector('section').innerHTML).toMatchSnapshot()
   })
 })

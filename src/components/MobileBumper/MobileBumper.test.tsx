@@ -1,8 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import Text from '../Text'
+import { render, act, fireEvent } from '@testing-library/react'
 import MobileBumper, { MobileBumperProps } from './MobileBumper'
-import { Container, ProfileButton, MenuButton } from './styles'
 
 const baseProps: MobileBumperProps = {
   heading: 'heading',
@@ -11,36 +9,37 @@ const baseProps: MobileBumperProps = {
 }
 
 describe('MobileBumper component', () => {
-  it('Should render a <Container>, <Heading> and 2 buttons', () => {
-    const wrapper = shallow(<MobileBumper {...baseProps} />)
+  it('Should render a <h2>', () => {
+    const { container, queryByText } = render(<MobileBumper {...baseProps} />)
 
-    expect(wrapper.find(Container).exists()).toBeTruthy()
-    expect(wrapper.find(Text).exists()).toBeTruthy()
-    expect(wrapper.find(ProfileButton).exists()).toBeTruthy()
-    expect(wrapper.find(MenuButton).exists()).toBeTruthy()
+    expect(container.querySelector('section')).toBeTruthy()
   })
 
   it('Should render the `heading` prop in an <h1>', () => {
     const heading = 'Test Heading'
-    const wrapper = shallow(<MobileBumper {...baseProps} heading={heading} />)
+    const { queryByText } = render(<MobileBumper {...baseProps} heading={heading} />)
 
-    expect(wrapper.find(Text).prop('children')).toBe(heading)
+    expect(queryByText(heading, { selector: 'h2' })).toBeTruthy()
   })
 
   it('Should call the `onToggleProfile` prop when the <ProfileButton> is clicked', () => {
     const onToggle = jest.fn()
-    const wrapper = shallow(<MobileBumper {...baseProps} onToggleProfile={onToggle} />)
+    const { queryByText } = render(<MobileBumper {...baseProps} onToggleProfile={onToggle} />)
 
-    wrapper.find(ProfileButton).simulate('click')
+    act(() => {
+      fireEvent.click(queryByText('Profile', { selector: 'button' }))
+    })
 
     expect(onToggle).toHaveBeenCalled()
   })
 
   it('Should call the `onToggleMenu` prop when the <button id="btn-menu"> is clicked', () => {
     const onToggle = jest.fn()
-    const wrapper = shallow(<MobileBumper {...baseProps} onToggleMenu={onToggle} />)
+    const { queryByText } = render(<MobileBumper {...baseProps} onToggleMenu={onToggle} />)
 
-    wrapper.find(MenuButton).simulate('click')
+    act(() => {
+      fireEvent.click(queryByText('Menu', { selector: 'button' }))
+    })
 
     expect(onToggle).toHaveBeenCalled()
   })

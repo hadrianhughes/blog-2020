@@ -1,9 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { Link } from 'gatsby'
-import Text from '../Text'
+import { render } from '@testing-library/react'
+import '../../__mocks__/gatsby.mock'
 import Profile, { ProfileProps } from './Profile'
-import { ProfileImg, Container } from './styles'
 
 const baseProps: ProfileProps = {
   imgSrc: 'img-src',
@@ -14,84 +12,54 @@ const baseProps: ProfileProps = {
 }
 
 describe('Profile component', () => {
-  it('Should render a <Container>', () => {
-    const wrapper = shallow(<Profile {...baseProps} />)
-    expect(wrapper.find(Container).exists()).toBeTruthy()
+  it('Should render a <section>', () => {
+    const { container } = render(<Profile {...baseProps} />)
+    expect(container.querySelector('section')).toBeTruthy()
   })
 
-  it('Should render a <Link> to the homepage', () => {
-    const wrapper = shallow(<Profile {...baseProps} />)
+  it('Should render an <a> to the homepage', () => {
+    const { container } = render(<Profile {...baseProps} />)
 
-    expect(wrapper.find(Link).exists()).toBeTruthy()
-    expect(wrapper.find(Link).prop('to')).toBe('/')
+    expect(container.querySelector('a[href="/"]')).toBeTruthy()
   })
 
-  it('Should render a picture tag inside the <Link>', () => {
-    const wrapper = shallow(<Profile {...baseProps} />)
-    expect(
-      wrapper
-        .find(Link)
-        .find('picture')
-        .exists()
-    ).toBeTruthy()
+  it('Should render a picture tag inside the <a>', () => {
+    const { container } = render(<Profile {...baseProps} />)
+    expect(container.querySelector('a picture')).toBeTruthy()
   })
 
   it('Should render the `imgSrcSet` prop into a <source>', () => {
     const imgSrcSet = 'test-src-set'
-    const wrapper = shallow(<Profile {...baseProps} imgSrcSet={imgSrcSet} />)
+    const { container } = render(<Profile {...baseProps} imgSrcSet={imgSrcSet} />)
 
-    expect(
-      wrapper
-        .find('picture > source')
-        .prop('srcSet')
-    ).toBe(imgSrcSet)
+    expect(container.querySelector(`picture > source[srcset="${imgSrcSet}"]`)).toBeTruthy()
   })
 
-  it('Should render the `imgSrc` prop into a <ProfileImg>', () => {
+  it('Should render the `imgSrc` prop into an <img>', () => {
     const imgSrc = 'test-src'
-    const wrapper = shallow(<Profile {...baseProps} imgSrc={imgSrc} />)
+    const { container } = render(<Profile {...baseProps} imgSrc={imgSrc} />)
 
-    expect(
-      wrapper
-        .find('picture')
-        .find(ProfileImg)
-        .prop('src')
-    ).toBe(imgSrc)
+    expect(container.querySelector(`picture > img[src="${imgSrc}"]`)).toBeTruthy()
   })
 
   it('Should use the `description` property for the <img> alt', () => {
     const imgAlt = 'test-alt'
-    const wrapper = shallow(<Profile {...baseProps} imgAlt={imgAlt} />)
+    const { container } = render(<Profile {...baseProps} imgAlt={imgAlt} />)
 
-    expect(
-      wrapper
-        .find('picture')
-        .find(ProfileImg)
-        .prop('alt')
-    ).toBe(imgAlt)
+    expect(container.querySelector(`picture > img[alt="${imgAlt}"]`)).toBeTruthy()
   })
 
-  it('Should render the `heading` property in a <Text>', () => {
+  it('Should render the `heading` property in an <h2>', () => {
     const heading = 'test-heading'
-    const wrapper = shallow(<Profile {...baseProps} heading={heading} />)
+    const { queryByText } = render(<Profile {...baseProps} heading={heading} />)
 
-    expect(
-      wrapper
-        .find(Text)
-        .first()
-        .prop('children')
-    ).toBe(heading)
+    expect(queryByText(heading, { selector: 'h2' })).toBeTruthy()
   })
 
-  it('Should render the `introduction` property in an <Text>', () => {
+  it('Should render the `introduction` property in a <p>', () => {
     const introduction = 'test-introduction'
-    const wrapper = shallow(<Profile {...baseProps} introduction={introduction} />)
+    const { queryByText } = render(<Profile {...baseProps} introduction={introduction} />)
 
-    expect(
-      wrapper
-        .find(Text)
-        .last()
-        .prop('children')
-    ).toBe(introduction)
+    expect(queryByText(introduction, { selector: 'p' })).toBeTruthy()
   })
 })
