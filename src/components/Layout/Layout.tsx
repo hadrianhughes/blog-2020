@@ -5,6 +5,7 @@ import GlobalStyles from '../../styles/global'
 import { breakpoints } from '../../styles/settings'
 import Profile from '../Profile'
 import MobileBumper from '../MobileBumper'
+import TagSelector from '../TagSelector'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
 
@@ -73,6 +74,11 @@ const Layout: FunctionComponent = ({ children }) => {
                 <hr />
               </>
             )
+            : null
+        }
+        {
+          isBigScreen || openState === 'menu'
+            ? <TagSelector />
             : null
         }
       </Header>

@@ -1,0 +1,31 @@
+{
+  "contentfulProfile": {
+    "profileImage": {
+      "description": "test-description",
+      "fluid": {
+        "srcSet": "test-src-set",
+        "src": "test-src"
+      }
+    },
+    "heading": "test-heading",
+    "introduction": {
+      "introduction": "test-introduction"
+    }
+  },
+  "allContentfulTag": {
+    "edges": [
+      {
+        "node": {
+          "identifier": "test-tag-1",
+          "name": "Test Tag 1"
+        }
+      },
+      {
+        "node": {
+          "identifier": "test-tag-2",
+          "name": "Test Tag 2"
+        }
+      }
+    ]
+  }
+}
