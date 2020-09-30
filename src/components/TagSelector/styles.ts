@@ -24,7 +24,7 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled(Link)`
-  border: 1px solid ${colors.lightGrey};
+  border: 1px solid ${colors.midGrey};
   border-radius: 20px;
   box-sizing: border-box;
   color: ${colors.black};
