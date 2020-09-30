@@ -8,6 +8,7 @@ import TagSelector from '../TagSelector'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
 import Head from '../Head'
+import Footer from '../Footer'
 
 type OpenState = 'profile' | 'menu' | null
 
@@ -62,6 +63,7 @@ const profileQuery = graphql`
       <Main>
         {children}
       </Main>
+      <Footer />
     </Container>
   )
 }
