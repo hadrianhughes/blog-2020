@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from '../../styles/tools'
 import { colors } from '../../styles/settings'
 import { Link } from 'gatsby'
@@ -24,18 +24,32 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled(Link)`
-  border: 1px solid ${colors.midGrey};
+  ${({ $active }) => $active
+    ? css`
+      background-color: ${colors.brand};
+      border: 2px solid ${colors.brand};
+      color: ${colors.white};
+    `
+    : css`
+      background-color: ${colors.white};
+      border: 2px solid ${colors.midGrey};
+      color: ${colors.black};
+
+
+      &:hover {
+        background-color: ${colors.mintWhite};
+        border: 2px solid ${colors.brand};
+      }
+    `
+  }
+
   border-radius: 20px;
   box-sizing: border-box;
-  color: ${colors.black};
   display: block;
+  font-weight: bold;
   height: 100%;
   padding: ${rem(10, 20)};
   text-decoration: none;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, border 0.5s;
   width: 100%;
-
-  &:hover {
-    background-color: ${colors.mintWhite};
-  }
 `
