@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive'
 import GlobalStyles from '../../styles/global'
 import { breakpoints } from '../../styles/settings'
 import Profile from '../Profile'
-import MobileBumper from '../MobileBumper'
 import TagSelector from '../TagSelector'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
@@ -40,50 +39,20 @@ const Layout: FunctionComponent = ({ children }) => {
     }
   } = data
 
-
-  const [openState, setOpenState] = useState<OpenState>(null)
-  const isBigScreen = useMediaQuery({
-    query: `(min-width: ${breakpoints.medium + 1}px)`
-  })
-
-  const toggleProfile = () => setOpenState(openState === 'profile' ? null : 'profile')
-  const toggleMenu = () => setOpenState(openState === 'menu' ? null : 'menu')
-
   return (
     <Container>
       <GlobalStyles />
       <Head />
-      <Header isBigScreen={isBigScreen}>
+      <Header>
         <div>
-          {
-            !isBigScreen
-              ? (
-                <MobileBumper
-                  heading={heading}
-                  onToggleProfile={toggleProfile}
-                  onToggleMenu={toggleMenu} />
-              ) : null
-          }
-          {
-            isBigScreen || openState === 'profile'
-              ? (
-                <>
-                  <Profile
-                    imgSrc={profileImage.fluid.src}
-                    imgSrcSet={profileImage.fluid.srcSet}
-                    imgAlt={profileImage.description}
-                    heading={heading}
-                    introduction={introduction.introduction} />
-                  <hr />
-                </>
-              )
-              : null
-          }
-          {
-            isBigScreen || openState === 'menu'
-              ? <TagSelector />
-              : null
-          }
+          <Profile
+            imgSrc={profileImage.fluid.src}
+            imgSrcSet={profileImage.fluid.srcSet}
+            imgAlt={profileImage.description}
+            heading={heading}
+            introduction={introduction.introduction} />
+          <hr />
+          <TagSelector />
         </div>
       </Header>
       <Main>

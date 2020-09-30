@@ -22,37 +22,9 @@ describe('Layout component', () => {
     expect(container.querySelector('main #render-me')).toBeTruthy()
   })
 
-  it('Should render a <Profile> inside the <Header> at desktop', () => {
+  it('Should render a <Profile>', () => {
     useMediaQuery.mockImplementation(() => true)
     const { queryByTestId } = render(<Layout />)
-
-    expect(queryByTestId('profile')).toBeTruthy()
-  })
-
-  it('Should not render <Profile> by default at mobile', () => {
-    useMediaQuery.mockImplementation(() => false)
-    const { queryByTestId } = render(<Layout />)
-
-    expect(queryByTestId('profile')).not.toBeTruthy()
-  })
-
-  it('Should render a <MobileBumper> by default at mobile', () => {
-    useMediaQuery.mockImplementation(() => false)
-    const { queryByTestId } = render(<Layout />)
-
-    expect(queryByTestId('mobile-bumper')).toBeTruthy()
-  })
-
-  it('Should render <Profile> on mobile after `onToggleProfile` is clicked from <MobileBumper>', () => {
-    useMediaQuery.mockImplementation(() => false)
-    const { queryByTestId } = render(<Layout />)
-
-    expect(queryByTestId('profile')).not.toBeTruthy()
-
-    act(() => {
-      const button = queryByTestId('mobile-bumper').querySelector('button')
-      fireEvent.click(button)
-    })
 
     expect(queryByTestId('profile')).toBeTruthy()
   })

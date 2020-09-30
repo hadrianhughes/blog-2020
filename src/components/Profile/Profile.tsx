@@ -28,7 +28,7 @@ const Profile: FunctionComponent<ProfileProps> = ({
           {heading}
         </Text>
       </Link>
-      <Text align="justify">{introduction}</Text>
+      <Text>{introduction}</Text>
     </Container>
   )
 }
