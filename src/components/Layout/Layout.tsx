@@ -11,6 +11,10 @@ import Head from '../Head'
 
 type OpenState = 'profile' | 'menu' | null
 
+interface LayoutProps {
+  title: string
+}
+
 const profileQuery = graphql`
   query ProfileQuery {
     contentfulProfile {
@@ -29,7 +33,7 @@ const profileQuery = graphql`
   }
 `
 
-const Layout: FunctionComponent = ({ children }) => {
+  const Layout: FunctionComponent<LayoutProps> = ({ children, title }) => {
   const data: ProfileData = useStaticQuery(profileQuery)
   const {
     contentfulProfile: {
@@ -42,7 +46,7 @@ const Layout: FunctionComponent = ({ children }) => {
   return (
     <Container>
       <GlobalStyles />
-      <Head />
+      <Head title={title} />
       <Header>
         <div>
           <Profile

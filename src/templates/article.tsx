@@ -14,7 +14,7 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
   const { title, body } = data.contentfulArticle
 
   return (
-    <Layout>
+    <Layout title={title}>
       <article>
         <ArticleBody heading={title} data={body.json} />
       </article>

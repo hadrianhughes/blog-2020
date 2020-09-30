@@ -19,11 +19,12 @@ const Home: FunctionComponent<HomeProps> = ({ data }) => {
   const resultItems: Result[] = allContentfulArticle.edges.map(({ node }) => ({
     title: node.title,
     path: node.path,
-    publishedAt: node.createdAt
+    publishedAt: node.createdAt,
+    tags: []
   }))
 
   return (
-    <Layout>
+    <Layout title="Blog">
       <Results items={resultItems} />
     </Layout>
   )

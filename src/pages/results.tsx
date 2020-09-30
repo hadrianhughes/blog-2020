@@ -32,7 +32,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
     : resultItems
 
   return (
-    <Layout>
+    <Layout title={queryTag || 'Results'}>
       {
         filteredItems.length > 0
           ? <Results items={filteredItems} />
