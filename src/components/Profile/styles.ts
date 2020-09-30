@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { minWidth, rem } from '../../styles/tools'
-import { spacings } from '../../styles/settings'
+import { spacings, colors } from '../../styles/settings'
 
 export const ProfileImg = styled.img`
   border-radius: 50%;

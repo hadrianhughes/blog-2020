@@ -24,13 +24,18 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled(Link)`
-  background-color: ${colors.grey};
+  border: 1px solid ${colors.lightGrey};
   border-radius: 20px;
   box-sizing: border-box;
-  color: ${colors.white};
+  color: ${colors.black};
   display: block;
   height: 100%;
-  padding: ${rem(10)};
+  padding: ${rem(10, 20)};
   text-decoration: none;
+  transition: background-color 0.5s;
   width: 100%;
+
+  &:hover {
+    background-color: ${colors.mintWhite};
+  }
 `

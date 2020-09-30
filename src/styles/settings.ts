@@ -15,8 +15,11 @@ export const colors = {
   black: '#000',
   grey: '#8e8e8e',
   blueGrey: '#fafafb',
+  lightGrey: '#fbfbfb',
+  darkGrey: '#808080',
   parchment: '#fdfcf7',
-  lightGrey: '#eaeaea'
+  brand: '#10D9A3',
+  mintWhite: '#f9fffc'
 }
 
 export const fontSizes = {

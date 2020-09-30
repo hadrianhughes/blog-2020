@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Text from '../Text'
-import { Container } from './styles'
+import { Container, UL, BulletItem } from './styles'
 
 interface ArticleBodyProps {
   heading: string
@@ -11,7 +11,9 @@ interface ArticleBodyProps {
 
 const options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <Text tag="p" align="justify">{children}</Text>
+    [BLOCKS.PARAGRAPH]: (_, children) => <Text tag="p" align="justify">{children}</Text>,
+    [BLOCKS.UL_LIST]: (_, children) => <UL>{children}</UL>,
+    [BLOCKS.LIST_ITEM]: (_, children) => <BulletItem>{children}</BulletItem>
   }
 }
 

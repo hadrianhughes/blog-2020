@@ -4,15 +4,15 @@ import { baseFontSize, colors, spacings } from './settings'
 
 const Globals = createGlobalStyle`
   html, body {
-    background: ${colors.parchment};
+    background: ${colors.white};
     font-family: Merriweather;
     font-size: ${baseFontSize}px;
     margin: 0;
   }
 
   hr {
-    border: 1px solid ${colors.lightGrey};
-    margin: ${rem(spacings.large)} auto;
+    border: 1px solid ${colors.brand};
+    margin: ${rem(spacings.large * 2)} auto;
     width: 80%;
   }
 
