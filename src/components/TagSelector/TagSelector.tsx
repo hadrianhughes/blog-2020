@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Tag } from '../../types'
 import { unwrapGraph } from '../../lib'
+import { StyledLink as Link, List, Item } from './styles'
 
 const TagSelector: FunctionComponent = () => {
   const result = useStaticQuery(
@@ -22,15 +23,15 @@ const TagSelector: FunctionComponent = () => {
   const tags = unwrapGraph(result.allContentfulTag)
 
   return (
-    <ul>
+    <List>
       {
         tags.map(tag => (
-          <li key={tag.identifier}>
+          <Item key={tag.identifier}>
             <Link to={`/results?tag=${tag.identifier}`}>{tag.name}</Link>
-          </li>
+          </Item>
         ))
       }
-    </ul>
+    </List>
   )
 }
 
