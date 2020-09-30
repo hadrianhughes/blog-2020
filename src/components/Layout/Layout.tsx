@@ -52,35 +52,37 @@ const Layout: FunctionComponent = ({ children }) => {
     <Container>
       <GlobalStyles />
       <Header isBigScreen={isBigScreen}>
-        {
-          !isBigScreen
-            ? (
-              <MobileBumper
-                heading={heading}
-                onToggleProfile={toggleProfile}
-                onToggleMenu={toggleMenu} />
-            ) : null
-        }
-        {
-          isBigScreen || openState === 'profile'
-            ? (
-              <>
-                <Profile
-                  imgSrc={profileImage.fluid.src}
-                  imgSrcSet={profileImage.fluid.srcSet}
-                  imgAlt={profileImage.description}
+        <div>
+          {
+            !isBigScreen
+              ? (
+                <MobileBumper
                   heading={heading}
-                  introduction={introduction.introduction} />
-                <hr />
-              </>
-            )
-            : null
-        }
-        {
-          isBigScreen || openState === 'menu'
-            ? <TagSelector />
-            : null
-        }
+                  onToggleProfile={toggleProfile}
+                  onToggleMenu={toggleMenu} />
+              ) : null
+          }
+          {
+            isBigScreen || openState === 'profile'
+              ? (
+                <>
+                  <Profile
+                    imgSrc={profileImage.fluid.src}
+                    imgSrcSet={profileImage.fluid.srcSet}
+                    imgAlt={profileImage.description}
+                    heading={heading}
+                    introduction={introduction.introduction} />
+                  <hr />
+                </>
+              )
+              : null
+          }
+          {
+            isBigScreen || openState === 'menu'
+              ? <TagSelector />
+              : null
+          }
+        </div>
       </Header>
       <Main>
         {children}
