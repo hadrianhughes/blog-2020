@@ -10,6 +10,7 @@ export const Container = styled.section`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: 0 ${rem(10)};
 `
 
 const buttonStyles = css`
