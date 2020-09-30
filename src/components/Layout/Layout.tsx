@@ -8,6 +8,7 @@ import MobileBumper from '../MobileBumper'
 import TagSelector from '../TagSelector'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
+import Head from '../Head'
 
 type OpenState = 'profile' | 'menu' | null
 
@@ -51,6 +52,7 @@ const Layout: FunctionComponent = ({ children }) => {
   return (
     <Container>
       <GlobalStyles />
+      <Head />
       <Header isBigScreen={isBigScreen}>
         <div>
           {
