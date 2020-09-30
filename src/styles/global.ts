@@ -7,6 +7,7 @@ const Globals = createGlobalStyle`
     background: ${colors.white};
     font-family: 'IBM Plex Serif', serif;
     font-size: ${baseFontSize}px;
+    line-height: 1.5;
     margin: 0;
   }
 
