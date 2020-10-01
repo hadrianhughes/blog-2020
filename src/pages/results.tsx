@@ -25,7 +25,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
     tags: node.tags
   }))
 
-  const { tag: queryTag } = queryToJson(window.location.search)
+  const { tag: queryTag } = queryToJson()
 
   const filteredItems = queryTag
     ? filterByTag(resultItems, queryTag)

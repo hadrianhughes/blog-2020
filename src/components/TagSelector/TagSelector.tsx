@@ -20,7 +20,7 @@ const TagSelector: FunctionComponent = () => {
     `
   )
 
-  const activeTag = queryToJson(window.location.search).tag
+  const activeTag = queryToJson().tag
   const tags = unwrapGraph(result.allContentfulTag)
 
   return (

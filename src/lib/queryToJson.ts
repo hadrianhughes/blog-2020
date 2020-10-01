@@ -1,4 +1,6 @@
-const queryToJson = (query: string): { [key: string]: any } => {
+const queryToJson = (): { [key: string]: any } => {
+  const query = window ? window.location.search : ''
+
   // ?x=y -> Minimum 4
   if (query.length < 4) return {}
 
