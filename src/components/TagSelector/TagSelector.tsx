@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Tag } from '../../types'
-import { unwrapGraph, queryToJson } from '../../lib'
+import { unwrapGraph, useQueryString } from '../../lib'
 import { StyledLink as Link, List, Item, StyledText as Text } from './styles'
 
 const TagSelector: FunctionComponent = () => {
@@ -20,7 +20,7 @@ const TagSelector: FunctionComponent = () => {
     `
   )
 
-  const activeTag = queryToJson().tag
+  const { tag: activeTag } = useQueryString()
   const tags = unwrapGraph(result.allContentfulTag)
 
   return (

@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import Text from '../components/Text'
 import { ContentfulArticleStub } from '../types'
-import { queryToJson, filterByTag } from '../lib'
+import { useQueryString, filterByTag } from '../lib'
 
 interface ResultsPageProps {
   data: {
@@ -25,7 +25,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
     tags: node.tags
   }))
 
-  const { tag: queryTag } = queryToJson()
+  const { tag: queryTag } = useQueryString()
 
   const filteredItems = queryTag
     ? filterByTag(resultItems, queryTag)
