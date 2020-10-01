@@ -23,7 +23,7 @@ const profileQuery = graphql`
     contentfulProfile {
       profileImage {
         description
-        resize(toFormat: WEBP, width: 100, height: 100, jpegProgressive: false) {
+        resize(toFormat: WEBP, width: 150, height: 150, jpegProgressive: false) {
           src
         }
       }
