@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import { ContentfulArticleStub } from '../types'
+import { siteTitle } from '../globals'
 
 interface HomeProps {
   data: {
@@ -24,7 +25,7 @@ const Home: FunctionComponent<HomeProps> = ({ data }) => {
   }))
 
   return (
-    <Layout title="Blog">
+    <Layout title={siteTitle}>
       <Results items={resultItems} />
     </Layout>
   )

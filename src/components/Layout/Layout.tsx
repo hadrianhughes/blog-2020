@@ -15,6 +15,7 @@ type OpenState = 'profile' | 'menu' | null
 
 interface LayoutProps {
   title: string
+  description?: string
   mini?: boolean
 }
 
@@ -35,7 +36,7 @@ const profileQuery = graphql`
   }
 `
 
-const Layout: FunctionComponent<LayoutProps> = ({ children, title, mini }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children, title, description, mini }) => {
   const data: ProfileData = useStaticQuery(profileQuery)
   const {
     contentfulProfile: {
@@ -50,7 +51,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, title, mini }) => {
   return (
     <Container>
       <GlobalStyles />
-      <Head title={title} />
+      <Head title={title} description={description || introduction.introduction} />
       <Header>
         <div>
           <TopBumper

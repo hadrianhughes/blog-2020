@@ -11,10 +11,10 @@ interface ArticlePageProps {
 }
 
 const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
-  const { title, body } = data.contentfulArticle
+  const { title, body, description } = data.contentfulArticle
 
   return (
-    <Layout title={title} mini>
+    <Layout title={title} description={description.description} mini>
       <article>
         <ArticleBody heading={title} data={body.json} />
       </article>
@@ -27,6 +27,9 @@ export const pageQuery = graphql`
     contentfulArticle(path: { eq: $pagePath }) {
       path
       title
+      description {
+        description
+      }
       body {
         json
       }

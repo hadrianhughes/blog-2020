@@ -30,6 +30,9 @@ export type ContentfulArticleStub = {
 export type ContentfulArticle = {
   path: string
   title: string
+  description: {
+    description: string
+  }
   body: {
     json: Document
   }
