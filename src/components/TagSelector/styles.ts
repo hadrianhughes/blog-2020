@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { rem } from '../../styles/tools'
 import { colors } from '../../styles/settings'
 import { Link } from 'gatsby'
+import Text from '../Text'
 
 export const List = styled.ul`
   display: flex;
@@ -45,4 +46,9 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   transition: background-color 0.5s, border 0.5s;
   width: 100%;
+`
+
+export const StyledText = styled(Text)`
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 `

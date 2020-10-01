@@ -6,10 +6,16 @@ import { Tag } from '../../types'
 import mockData from '../../__mocks__/useStaticQueryData.json'
 
 describe('TagSelector component', () => {
+  it('Should render a "Read about..."', () => {
+    const { getByText } = render(<TagSelector />)
+
+    expect(getByText('Read about...')).toBeInTheDocument()
+  })
+
   it('Should render a <ul>', () => {
     const { container } = render(<TagSelector />)
 
-    expect(container.querySelector('ul')).toBeTruthy()
+    expect(container.querySelector('ul')).toBeInTheDocument()
   })
 
   it('Should render a <li> for each tag', () => {

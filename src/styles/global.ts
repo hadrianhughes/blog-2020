@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { rem } from './tools'
+import { rem, minWidth } from './tools'
 import { baseFontSize, colors, spacings } from './settings'
 
 const Globals = createGlobalStyle`
@@ -13,8 +13,12 @@ const Globals = createGlobalStyle`
 
   hr {
     border: 1px solid ${colors.brand};
-    margin: ${rem(spacings.large * 2)} auto;
+    margin: ${rem(spacings.large * 1.5)} auto;
     width: 80%;
+
+    ${minWidth('large')} {
+      margin: ${rem(spacings.large * 2)} auto;
+    }
   }
 `
 
