@@ -24,7 +24,7 @@ const TagSelector: FunctionComponent = () => {
   const tags = unwrapGraph(result.allContentfulTag)
 
   return (
-    <section>
+    <section data-testid="tag-selector">
       <Text align="center">Read about...</Text>
       <List>
         {

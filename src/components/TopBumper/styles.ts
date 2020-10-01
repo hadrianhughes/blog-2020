@@ -7,11 +7,8 @@ export const StyledLink = styled(Link)`
   align-items: center;
   color: ${colors.black};
   display: flex;
+  justify-content: center;
   text-decoration: none;
-
-  ${minWidth('large')} {
-    justify-content: center;
-  }
 `
 
 export const ProfileImg = styled.img`

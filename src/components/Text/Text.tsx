@@ -8,6 +8,7 @@ interface TextProps {
   className?: string
   align?: 'left' | 'center' | 'right' | 'justify'
   noSpace?: boolean
+  testId?: string
 }
 
 const Text: FunctionComponent<TextProps> = ({
@@ -16,14 +17,16 @@ const Text: FunctionComponent<TextProps> = ({
   children,
   className,
   align,
-  noSpace
+  noSpace,
+  testId
 }) => (
   <StyledText
     as={tag}
     className={className}
     size={size}
     align={align}
-    noSpace={noSpace}>
+    noSpace={noSpace}
+    data-testid={testId}>
     {children}
   </StyledText>
 )

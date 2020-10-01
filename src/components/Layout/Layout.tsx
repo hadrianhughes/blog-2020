@@ -15,6 +15,7 @@ type OpenState = 'profile' | 'menu' | null
 
 interface LayoutProps {
   title: string
+  mini?: boolean
 }
 
 const profileQuery = graphql`
@@ -34,7 +35,7 @@ const profileQuery = graphql`
   }
 `
 
-  const Layout: FunctionComponent<LayoutProps> = ({ children, title }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children, title, mini }) => {
   const data: ProfileData = useStaticQuery(profileQuery)
   const {
     contentfulProfile: {
@@ -43,6 +44,8 @@ const profileQuery = graphql`
       introduction
     }
   } = data
+
+  const isSmallScreen = useMediaQuery({ query: `(max-width: ${breakpoints.medium}px)` })
 
   return (
     <Container>
@@ -54,9 +57,17 @@ const profileQuery = graphql`
             imgSrc={profileImage.file.url}
             imgAlt={profileImage.description}
             heading={heading} />
-          <Text>{introduction.introduction}</Text>
-          <hr />
-          <TagSelector />
+          {
+            isSmallScreen && mini
+              ? null
+              : (
+                <>
+                  <Text testId="introduction">{introduction.introduction}</Text>
+                  <hr />
+                  <TagSelector />
+                </>
+              )
+          }
         </div>
       </Header>
       <Main>
