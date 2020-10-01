@@ -2,7 +2,7 @@
   "contentfulProfile": {
     "profileImage": {
       "description": "test-description",
-      "file": {
+      "resize": {
         "src": "test-src"
       }
     },

@@ -23,8 +23,8 @@ const profileQuery = graphql`
     contentfulProfile {
       profileImage {
         description
-        file {
-          url
+        resize(toFormat: WEBP, width: 100, height: 100, jpegProgressive: false) {
+          src
         }
       }
       heading
@@ -54,7 +54,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, title, mini }) => {
       <Header>
         <div>
           <TopBumper
-            imgSrc={profileImage.file.url}
+            imgSrc={profileImage.resize.src}
             imgAlt={profileImage.description}
             heading={heading} />
           {
