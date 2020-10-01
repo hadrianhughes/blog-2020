@@ -4,9 +4,8 @@ export type ProfileData = {
   contentfulProfile: {
     profileImage: {
       description: string
-      fluid: {
-        srcSet: string
-        src: string
+      file: {
+        url: string
       }
     }
     heading: string

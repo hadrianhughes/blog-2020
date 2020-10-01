@@ -2,8 +2,7 @@
   "contentfulProfile": {
     "profileImage": {
       "description": "test-description",
-      "fluid": {
-        "srcSet": "test-src-set",
+      "file": {
         "src": "test-src"
       }
     },

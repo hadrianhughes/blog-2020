@@ -1,21 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { minWidth, rem } from '../../styles/tools'
-import { spacings, colors } from '../../styles/settings'
-
-export const ProfileImg = styled.img`
-  border-radius: 50%;
-  margin-right: ${rem(10)};
-  width: 50px;
-`
-
-export const Container = styled.section`
-  margin-top: ${rem(spacings.large)};
-
-  ${minWidth('large')} {
-    margin-top: 0;
-  }
-`
+import { colors } from '../../styles/settings'
 
 export const StyledLink = styled(Link)`
   align-items: center;
@@ -26,4 +12,10 @@ export const StyledLink = styled(Link)`
   ${minWidth('large')} {
     justify-content: center;
   }
+`
+
+export const ProfileImg = styled.img`
+  border-radius: 50%;
+  margin-right: ${rem(10)};
+  width: ${rem(50)};
 `

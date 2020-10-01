@@ -3,12 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import GlobalStyles from '../../styles/global'
 import { breakpoints } from '../../styles/settings'
-import Profile from '../Profile'
 import TagSelector from '../TagSelector'
 import { ProfileData } from '../../types'
 import { Container, Header, Main } from './styles'
 import Head from '../Head'
 import Footer from '../Footer'
+import TopBumper from '../TopBumper'
+import Text from '../Text'
 
 type OpenState = 'profile' | 'menu' | null
 
@@ -21,9 +22,8 @@ const profileQuery = graphql`
     contentfulProfile {
       profileImage {
         description
-        fluid(toFormat: WEBP) {
-          srcSet
-          src
+        file {
+          url
         }
       }
       heading
@@ -50,12 +50,11 @@ const profileQuery = graphql`
       <Head title={title} />
       <Header>
         <div>
-          <Profile
-            imgSrc={profileImage.fluid.src}
-            imgSrcSet={profileImage.fluid.srcSet}
+          <TopBumper
+            imgSrc={profileImage.file.url}
             imgAlt={profileImage.description}
-            heading={heading}
-            introduction={introduction.introduction} />
+            heading={heading} />
+          <Text>{introduction.introduction}</Text>
           <hr />
           <TagSelector />
         </div>
