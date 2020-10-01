@@ -15,10 +15,6 @@ const Globals = createGlobalStyle`
     border: 1px solid ${colors.brand};
     margin: ${rem(spacings.large * 1.5)} auto;
     width: 80%;
-
-    ${minWidth('large')} {
-      margin: ${rem(spacings.large * 2)} auto;
-    }
   }
 `
 
