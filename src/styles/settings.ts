@@ -32,5 +32,6 @@ export const fontSizes = {
 export const spacings = {
   small: 10,
   medium: 20,
-  large: 30
+  large: 30,
+  xlarge: 50
 }

@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { rem, minWidth } from '../../styles/tools'
 import { spacings, colors } from '../../styles/settings'
@@ -37,6 +38,10 @@ export const Image = styled.img`
   width: 100%;
 
   ${minWidth('large')} {
-    width: 80%;
+    width: 90%;
   }
+`
+
+export const headingForLevel = (level: number): FunctionComponent => styled[`h${level}`]`
+  margin: ${spacings.xlarge}px 0 ${spacings.medium}px;
 `
