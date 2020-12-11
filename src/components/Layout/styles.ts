@@ -5,7 +5,7 @@ import { spacings } from '../../styles/settings'
 export const Container = styled.div`
   ${minWidth('large')} {
     display: grid;
-    grid-template-columns: 1fr 2.5fr;
+    grid-template-columns: 25% 75%;
     min-height: 100vh;
   }
 `

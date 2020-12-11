@@ -30,3 +30,13 @@ export const BulletItem = styled.li`
     }
   }
 `
+
+export const Image = styled.img`
+  display: block;
+  margin: ${rem(spacings.large)} auto;
+  width: 100%;
+
+  ${minWidth('large')} {
+    width: 80%;
+  }
+`
