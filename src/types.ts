@@ -33,7 +33,7 @@ export type ContentfulArticle = {
   description: {
     description: string
   }
-  body: {
-    json: Document
+  content: {
+    content: string
   }
 }

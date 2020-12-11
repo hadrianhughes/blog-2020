@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Markdown from 'react-markdown'
 import Text from '../Text'
 import { Container, UL, BulletItem } from './styles'
+import CodeBlock from './CodeBlock'
 
 interface ArticleBodyProps {
   heading: string
-  data: Document
+  markdown: string
 }
 
 const options = {
@@ -17,10 +18,12 @@ const options = {
   }
 }
 
-const ArticleBody: FunctionComponent<ArticleBodyProps> = ({ heading, data }) => (
+const ArticleBody: FunctionComponent<ArticleBodyProps> = ({ heading, markdown }) => (
   <Container>
     <Text tag="h1" size="headline">{heading}</Text>
-    {documentToReactComponents(data, options)}
+    <Markdown renderers={{ code: CodeBlock }}>
+      {markdown}
+    </Markdown>
   </Container>
 )
 
