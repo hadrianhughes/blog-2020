@@ -17,7 +17,7 @@ const useQueryString = (): { [key: string]: string } => {
     }, {})
 
     setQuery(jsonPairs)
-  }, [])
+  }, [window.location.search])
 
   return query
 }
