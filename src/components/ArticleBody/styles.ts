@@ -1,7 +1,8 @@
 import { FunctionComponent } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem, minWidth } from '../../styles/tools'
 import { spacings, colors } from '../../styles/settings'
+import Text from '../Text'
 
 const bulletSize = 8;
 
@@ -42,6 +43,6 @@ export const Image = styled.img`
   }
 `
 
-export const headingForLevel = (level: number): FunctionComponent => styled[`h${level}`]`
+export const BodyHeading = styled(Text)`
   margin: ${spacings.xlarge}px 0 ${spacings.medium}px;
 `

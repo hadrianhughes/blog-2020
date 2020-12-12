@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
 import Markdown from 'react-markdown'
 import Text from '../Text'
-import { Container, UL, BulletItem, Image, headingForLevel } from './styles'
+import { Container, UL, BulletItem, Image, BodyHeading } from './styles'
 import CodeBlock from './CodeBlock'
 
 interface ArticleBodyProps {
@@ -16,9 +16,9 @@ const renderers = {
   list: ({ children }) => <UL>{children}</UL>,
   listItem: ({ children }) => <BulletItem>{children}</BulletItem>,
   image: ({ src, alt }) => <Image src={src} alt={alt} />,
-  heading: ({ children, level }) => {
-    const Tag = headingForLevel(level)
-    return <Tag>{children}</Tag>
+  heading: ({ level, children }) => {
+    const size = level === 2 ? 'xlarge' : 'large'
+    return <BodyHeading tag={`h${level}`} size={size}>{children}</BodyHeading>
   }
 }
 

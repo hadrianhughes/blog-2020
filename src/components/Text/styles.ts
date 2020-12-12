@@ -9,6 +9,8 @@ export const StyledText = styled.p(({ size, align, noSpace, bold }) => (
 
     ${noSpace && 'margin: 0;'}
 
+    ${size === 'headline' && 'line-height: 1.5;'}
+
     ${minWidth('medium')} {
       font-size: ${size ? fontSizes[size].desktop : 1}rem;
     }
