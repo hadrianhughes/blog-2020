@@ -4,11 +4,16 @@ import { baseFontSize, colors, spacings } from './settings'
 
 const Globals = createGlobalStyle`
   html, body {
-    background: ${colors.white};
     font-family: Merriweather, serif;
     font-size: ${baseFontSize}px;
     line-height: 1.75;
+  }
+
+  body {
+    background: ${colors.white};
     margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   hr {
