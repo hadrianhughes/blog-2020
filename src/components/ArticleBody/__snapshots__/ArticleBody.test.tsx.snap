@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArticleBody component Should pass the \`data\` prop to the \`documentToReactComponents\` function 1`] = `"<h1 class=\\"sc-bdnylx dDBGmq\\">test heading</h1><h1 class=\\"sc-bdnylx dEmyOT sc-jSFkmK cDOnar\\">Hello World</h1><p class=\\"sc-bdnylx frdoay\\">Lorem ipsum dolor</p>"`;
+exports[`ArticleBody component Should pass the \`data\` prop to the \`documentToReactComponents\` function 1`] = `"<h1 class=\\"sc-bdnylx dDBGmq\\">test heading</h1><h1 class=\\"sc-bdnylx blxlxr sc-jSFkmK cDOnar\\">Hello World</h1><p class=\\"sc-bdnylx frdoay\\">Lorem ipsum dolor</p>"`;

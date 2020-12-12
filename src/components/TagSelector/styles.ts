@@ -13,7 +13,7 @@ export const List = styled.ul`
 `
 
 export const Item = styled.li`
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Karla', sans-serif;
   margin: ${rem(5)};
   overflow: hidden;
 `
@@ -49,6 +49,6 @@ export const StyledLink = styled(Link)`
 `
 
 export const StyledText = styled(Text)`
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Karla', sans-serif;
   font-weight: bold;
 `

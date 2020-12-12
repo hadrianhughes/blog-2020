@@ -25,7 +25,7 @@ export const colors = {
 
 export const fontSizes = {
   body: { mobile: 1, desktop: 1 },
-  large: { mobile: 1.5, desktop: 1.5 },
+  large: { mobile: 1.75, desktop: 1.75 },
   xlarge: { mobile: 2, desktop: 2 },
   headline: { mobile: 2.5, desktop: 3 }
 }

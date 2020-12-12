@@ -47,5 +47,5 @@ export const ItemLink = styled(Link)`
 
 export const PublishedText = styled(Text)`
   color: ${colors.grey};
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Karla', sans-serif;
 `
