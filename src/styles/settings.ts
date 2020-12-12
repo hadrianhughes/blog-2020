@@ -2,7 +2,7 @@ export const baseFontSize = 16
 
 export type Breakpoint = 'small' | 'medium' | 'large'
 export type FontSize = 'body' | 'large' | 'xlarge' | 'headline'
-export type Spacing = 'small' | 'medium' | 'large'
+export type Spacing = 'xsmall' | 'small' | 'medium' | 'large'
 
 export const breakpoints = {
   small: 375,
@@ -18,7 +18,7 @@ export const colors = {
   lightGrey: '#fbfbfb',
   midGrey: '#d4d4d4',
   darkGrey: '#808080',
-  parchment: '#fdfcf7',
+  parchment: '#fdf8eb',
   brand: '#10D9A3',
   mintWhite: '#f9fffc'
 }
@@ -31,6 +31,7 @@ export const fontSizes = {
 }
 
 export const spacings = {
+  xsmall: 3,
   small: 10,
   medium: 20,
   large: 30,

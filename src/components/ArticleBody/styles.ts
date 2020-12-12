@@ -46,3 +46,8 @@ export const Image = styled.img`
 export const BodyHeading = styled(Text)`
   margin: ${spacings.xlarge}px 0 ${spacings.medium}px;
 `
+
+export const InlineCode = styled.code`
+  background-color: ${colors.parchment};
+  padding: ${spacings.xsmall}px ${spacings.small}px;
+`
