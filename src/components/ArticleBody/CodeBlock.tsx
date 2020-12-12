@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { solarizedlight } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism'
+import solarizedlight from 'react-syntax-highlighter/dist/cjs/styles/prism/solarizedlight'
 
 interface CodeBlockProps {
-  value: string
-  language: string
+  value: string;
+  language: string;
 }
 
 const CodeBlock: FunctionComponent<CodeBlockProps> = ({ value, language }) => (

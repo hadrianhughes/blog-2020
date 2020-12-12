@@ -9,10 +9,10 @@ interface HomeProps {
   data: {
     allContentfulArticle: {
       edges: {
-        node: ContentfulArticleStub
-      }[]
-    }
-  }
+        node: ContentfulArticleStub;
+      }[];
+    };
+  };
 }
 
 const Home: FunctionComponent<HomeProps> = ({ data }) => {

@@ -1,7 +1,11 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 
 const useQueryString = (): { [key: string]: string } => {
   const [query, setQuery] = useState({})
+
+  if (typeof window === 'undefined') {
+    return query
+  }
 
   useEffect(() => {
     const rawQuery = window.location.search

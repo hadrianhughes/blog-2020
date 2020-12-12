@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import GlobalStyles from '../../styles/global'
@@ -14,9 +14,9 @@ import Text from '../Text'
 type OpenState = 'profile' | 'menu' | null
 
 interface LayoutProps {
-  title: string
-  description?: string
-  mini?: boolean
+  title: string;
+  description?: string;
+  mini?: boolean;
 }
 
 const profileQuery = graphql`

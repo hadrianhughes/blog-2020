@@ -2,7 +2,6 @@ import '../../__mocks__/gatsby.mock'
 import React from 'react'
 import { render } from '@testing-library/react'
 import TagSelector from './TagSelector'
-import { Tag } from '../../types'
 import mockData from '../../__mocks__/useStaticQueryData.json'
 
 describe('TagSelector component', () => {

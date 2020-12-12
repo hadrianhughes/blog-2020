@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react'
 import Helmet from 'react-helmet'
 import { makeTitle } from '../../lib'
-import { Tag } from '../../types'
 
 interface HeadProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 const Head: FunctionComponent<HeadProps> = ({ title, description }) => (

@@ -6,8 +6,8 @@ import { ContentfulArticle } from '../types'
 
 interface ArticlePageProps {
   data: {
-    contentfulArticle: ContentfulArticle
-  }
+    contentfulArticle: ContentfulArticle;
+  };
 }
 
 const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {

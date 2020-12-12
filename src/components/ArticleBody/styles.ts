@@ -1,5 +1,4 @@
-import { FunctionComponent } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { rem, minWidth } from '../../styles/tools'
 import { spacings, colors } from '../../styles/settings'
 import Text from '../Text'

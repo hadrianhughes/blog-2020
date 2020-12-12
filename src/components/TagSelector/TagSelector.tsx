@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Tag } from '../../types'
 import { unwrapGraph, useQueryString } from '../../lib'
 import { StyledLink as Link, List, Item, StyledText as Text } from './styles'
 

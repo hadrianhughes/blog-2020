@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { minWidth, rem } from '../../styles/tools'
+import { rem } from '../../styles/tools'
 import { colors } from '../../styles/settings'
 
 export const StyledLink = styled(Link)`

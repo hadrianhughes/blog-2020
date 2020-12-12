@@ -14,6 +14,8 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig
     },
-    'gatsby-plugin-react-helmet'
-  ],
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-webpack-bundle-analyser-v2'
+  ]
 }

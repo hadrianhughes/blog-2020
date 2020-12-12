@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   div {
-    padding: ${props => props.isBigScreen ? rem(spacings.medium) : rem(spacings.small, spacings.large)};
+    padding: ${(props): string => props.isBigScreen ? rem(spacings.medium) : rem(spacings.small, spacings.large)};
     position: sticky;
     top: 0;
 

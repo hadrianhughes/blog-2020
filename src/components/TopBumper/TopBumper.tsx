@@ -3,9 +3,9 @@ import Text from '../Text'
 import { StyledLink as Link, ProfileImg } from './styles'
 
 interface TopBumperProps {
-  imgSrc: string
-  imgAlt: string
-  heading: string
+  imgSrc: string;
+  imgAlt: string;
+  heading: string;
 }
 
 const TopBumper: FunctionComponent<TopBumperProps> = ({ imgSrc, imgAlt, heading }) => (

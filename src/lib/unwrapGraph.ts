@@ -1,5 +1,5 @@
 export type GraphStructure = {
-  edges: { node: any }[]
+  edges: { node: any }[];
 }
 
 const unwrapGraph = (graph: GraphStructure): any[] => {

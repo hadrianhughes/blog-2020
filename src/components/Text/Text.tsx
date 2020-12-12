@@ -1,14 +1,14 @@
-import React, { FunctionComponent, ComponentClass } from 'react'
-import { FontSize, Spacing } from '../../styles/settings'
+import React, { FunctionComponent } from 'react'
+import { FontSize } from '../../styles/settings'
 import { StyledText } from './styles'
 
 interface TextProps {
-  tag?: string
-  size?: FontSize
-  className?: string
-  align?: 'left' | 'center' | 'right' | 'justify'
-  noSpace?: boolean
-  testId?: string
+  tag?: string;
+  size?: FontSize;
+  className?: string;
+  align?: 'left' | 'center' | 'right' | 'justify';
+  noSpace?: boolean;
+  testId?: string;
 }
 
 const Text: FunctionComponent<TextProps> = ({

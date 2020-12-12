@@ -19,7 +19,7 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled(Link)`
-  ${({ $active }) => $active
+  ${({ $active }): string => $active
     ? css`
       background-color: ${colors.brand};
       border: 2px solid ${colors.brand};

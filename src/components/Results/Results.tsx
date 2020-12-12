@@ -6,17 +6,16 @@ import {
   PublishedText,
   ItemHeading
 } from './styles'
-import Text from '../Text'
 
 export type Result = {
-  title: string
-  path: string
-  publishedAt: string
-  tags: Tag[]
+  title: string;
+  path: string;
+  publishedAt: string;
+  tags: Tag[];
 }
 
 interface ResultsProps {
-  items: Result[]
+  items: Result[];
 }
 
 const Results: FunctionComponent<ResultsProps> = ({ items }) => (

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { rem, minWidth } from './tools'
+import { rem } from './tools'
 import { baseFontSize, colors, spacings } from './settings'
 
 const Globals = createGlobalStyle`

@@ -10,10 +10,10 @@ interface ResultsPageProps {
   data: {
     allContentfulArticle: {
       edges: {
-        node: ContentfulArticleStub
-      }[]
-    }
-  }
+        node: ContentfulArticleStub;
+      }[];
+    };
+  };
 }
 
 const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {

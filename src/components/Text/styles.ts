@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { fontSizes } from '../../styles/settings'
 import { minWidth } from '../../styles/tools'
 
-export const StyledText = styled.p(({ size, align, noSpace, bold }) => (
+export const StyledText = styled.p(({ size, align, noSpace }) => (
   css`
     font-size: ${size ? fontSizes[size].mobile : 1}rem;
     text-align: ${align || 'left'};
