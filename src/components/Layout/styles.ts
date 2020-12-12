@@ -3,6 +3,8 @@ import { minWidth, rem } from '../../styles/tools'
 import { spacings } from '../../styles/settings'
 
 export const Container = styled.div`
+  overflow: hidden;
+
   ${minWidth('large')} {
     display: grid;
     grid-template-columns: 25% 75%;
