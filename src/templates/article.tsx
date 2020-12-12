@@ -11,10 +11,24 @@ interface ArticlePageProps {
 }
 
 const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
-  const { title, content, description } = data.contentfulArticle
+  const {
+    title,
+    content,
+    description,
+    tags,
+    createdAt,
+    path
+  } = data.contentfulArticle
 
   return (
-    <Layout title={title} description={description.description} mini>
+    <Layout
+      title={title}
+      description={description.description}
+      mini
+      tags={tags.map(t => t.name)}
+      publishedAt={createdAt}
+      path={path}
+    >
       <article>
         <ArticleBody heading={title} markdown={content.content} />
       </article>
@@ -32,6 +46,10 @@ export const pageQuery = graphql`
       }
       content {
         content
+      }
+      createdAt
+      tags {
+        name
       }
     }
   }

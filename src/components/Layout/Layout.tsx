@@ -17,6 +17,9 @@ interface LayoutProps {
   title: string;
   description?: string;
   mini?: boolean;
+  tags?: string[];
+  publishedAt?: string;
+  path?: string;
 }
 
 const profileQuery = graphql`
@@ -36,7 +39,15 @@ const profileQuery = graphql`
   }
 `
 
-const Layout: FunctionComponent<LayoutProps> = ({ children, title, description, mini }) => {
+const Layout: FunctionComponent<LayoutProps> = ({
+  children,
+  title,
+  description,
+  mini,
+  tags,
+  publishedAt,
+  path
+}) => {
   const data: ProfileData = useStaticQuery(profileQuery)
   const {
     contentfulProfile: {
@@ -51,7 +62,13 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, title, description, 
   return (
     <Container>
       <GlobalStyles />
-      <Head title={title} description={description || introduction.introduction} />
+      <Head
+        title={title}
+        description={description || introduction.introduction}
+        tags={tags}
+        publishedAt={publishedAt}
+        path={path}
+      />
       <Header>
         <div>
           <TopBumper

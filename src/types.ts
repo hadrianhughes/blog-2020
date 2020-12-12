@@ -10,7 +10,7 @@ export type ProfileData = {
     introduction: {
       introduction: string;
     };
-  }
+  };
 }
 
 export type Tag = {
@@ -34,4 +34,6 @@ export type ContentfulArticle = {
   content: {
     content: string;
   };
+  tags: Tag[];
+  createdAt: string;
 }
