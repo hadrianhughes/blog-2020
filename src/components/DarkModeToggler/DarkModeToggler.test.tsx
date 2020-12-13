@@ -6,7 +6,7 @@ import { DarkModeProvider } from '../../context/DarkMode'
 describe('DarkModeToggler component', () => {
   it('Should render a label', () => {
     const { container } = render(
-      <DarkModeProvider>
+      <DarkModeProvider testing>
         <DarkModeToggler />
       </DarkModeProvider>
     )
@@ -16,7 +16,7 @@ describe('DarkModeToggler component', () => {
 
   it('Should render an input inside the label', () => {
     const { container } = render(
-      <DarkModeProvider>
+      <DarkModeProvider testing>
         <DarkModeToggler />
       </DarkModeProvider>
     )
@@ -26,7 +26,7 @@ describe('DarkModeToggler component', () => {
 
   it('Should be unchecked by default', () => {
     const { container } = render(
-      <DarkModeProvider>
+      <DarkModeProvider testing>
         <DarkModeToggler />
       </DarkModeProvider>
     )
@@ -36,11 +36,10 @@ describe('DarkModeToggler component', () => {
 
   it('Should be checked after a click event is fired', () => {
     const { container } = render(
-      <DarkModeProvider>
+      <DarkModeProvider testing>
         <DarkModeToggler />
       </DarkModeProvider>
     )
-
 
     act(() => {
       fireEvent.click(container.querySelector('input'))
@@ -51,11 +50,10 @@ describe('DarkModeToggler component', () => {
 
   it('Should be checked after a click event on the label is fired', () => {
     const { container } = render(
-      <DarkModeProvider>
+      <DarkModeProvider testing>
         <DarkModeToggler />
       </DarkModeProvider>
     )
-
 
     act(() => {
       fireEvent.click(container.querySelector('label'))
