@@ -3,7 +3,7 @@ import { minWidth, rem } from '../../styles/tools'
 import { spacings } from '../../styles/settings'
 
 export const Container = styled.div`
-  overflow: hidden;
+  width: 100%;
 
   ${minWidth('large')} {
     display: grid;
