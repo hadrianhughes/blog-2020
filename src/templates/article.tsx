@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ArticleBody from '../components/ArticleBody'
 import { ContentfulArticle } from '../types'
+import { formatDate } from '../lib'
 
 interface ArticlePageProps {
   data: {
@@ -30,7 +31,11 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
       path={path}
     >
       <article>
-        <ArticleBody heading={title} markdown={content.content} />
+        <ArticleBody
+          heading={title}
+          markdown={content.content}
+          publishedAt={formatDate(new Date(createdAt))}
+        />
       </article>
     </Layout>
   )

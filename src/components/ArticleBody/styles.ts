@@ -50,3 +50,12 @@ export const InlineCode = styled.code`
   background-color: ${colors.parchment};
   padding: ${spacings.xsmall}px ${spacings.small}px;
 `
+
+export const PublishedText = styled(Text)`
+  color: ${colors.grey};
+  font-family: 'Karla', sans-serif;
+`
+
+export const Content = styled.div`
+  margin-top: ${rem(spacings.large)};
+`

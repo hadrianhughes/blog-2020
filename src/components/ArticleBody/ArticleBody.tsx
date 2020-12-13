@@ -1,12 +1,22 @@
 import React, { FunctionComponent } from 'react'
 import Markdown from 'react-markdown'
 import Text from '../Text'
-import { Container, UL, BulletItem, Image, BodyHeading, InlineCode } from './styles'
+import {
+  Container,
+  UL,
+  BulletItem,
+  Image,
+  BodyHeading,
+  InlineCode,
+  PublishedText,
+  Content
+} from './styles'
 import CodeBlock from './CodeBlock'
 
 interface ArticleBodyProps {
   heading: string;
   markdown: string;
+  publishedAt: string;
 }
 
 const renderers = {
@@ -22,12 +32,19 @@ const renderers = {
   inlineCode: InlineCode
 }
 
-const ArticleBody: FunctionComponent<ArticleBodyProps> = ({ heading, markdown }) => (
+const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
+  heading,
+  markdown,
+  publishedAt
+}) => (
   <Container>
-    <Text tag="h1" size="headline">{heading}</Text>
-    <Markdown renderers={renderers}>
-      {markdown}
-    </Markdown>
+    <Text tag="h1" size="headline" noSpace>{heading}</Text>
+    <PublishedText noSpace>{publishedAt}</PublishedText>
+    <Content>
+      <Markdown renderers={renderers}>
+        {markdown}
+      </Markdown>
+    </Content>
   </Container>
 )
 

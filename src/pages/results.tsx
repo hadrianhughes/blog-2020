@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import Text from '../components/Text'
 import { ContentfulArticleStub } from '../types'
-import { useQueryString, filterByTag } from '../lib'
+import { useQueryString, filterByTag, formatDate } from '../lib'
 
 interface ResultsPageProps {
   data: {
@@ -21,7 +21,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
   const resultItems: Result[] = allContentfulArticle.edges.map(({ node }) => ({
     title: node.title,
     path: node.path,
-    publishedAt: node.createdAt,
+    publishedAt: formatDate(new Date(node.createdAt)),
     tags: node.tags
   }))
 
@@ -49,7 +49,7 @@ export const query = graphql`
         node {
           title
           path
-          createdAt(formatString: "DD MMM YYYY")
+          createdAt
           tags {
             identifier
             name
