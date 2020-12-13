@@ -10,8 +10,7 @@ import Head from '../Head'
 import Footer from '../Footer'
 import TopBumper from '../TopBumper'
 import Text from '../Text'
-import { DarkModeProvider, useDarkMode } from '../../context/DarkMode'
-import { withProvider } from '../../lib'
+import { useDarkMode } from '../../context/DarkMode'
 import DarkModeToggler from '../DarkModeToggler'
 
 type OpenState = 'profile' | 'menu' | null
@@ -103,4 +102,4 @@ const Layout: FunctionComponent<LayoutProps> = ({
   )
 }
 
-export default withProvider(Layout)(DarkModeProvider)
+export default Layout

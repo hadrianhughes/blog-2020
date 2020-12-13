@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import { rem } from '../../styles/tools'
 import { colors, spacings } from '../../styles/settings'
@@ -16,36 +16,41 @@ export const ItemHeading = styled(Text)`
 `
 
 export const ItemLink = styled(Link)`
-  background: ${colors.white};
-  box-sizing: border-box;
-  color: ${colors.black};
-  display: block;
-  padding: ${rem(spacings.medium, spacings.large)};
-  position: relative;
-  text-decoration: none;
-  transition: background 0.5s;
-  width: 100%;
+  ${({ $darkMode }): string => css`
+    background: ${$darkMode ? colors.grey : colors.white};
+    box-sizing: border-box;
+    color: ${colors.black};
+    display: block;
+    padding: ${rem(spacings.medium, spacings.large)};
+    position: relative;
+    text-decoration: none;
+    transition: background 0.2s;
+    width: 100%;
 
-  &::before {
-    background-color: ${colors.brand};
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: ${pseudoWidth}px;
-  }
-
-  &:hover {
-    background: ${colors.lightGrey};
-
-    ${ItemHeading} {
-      text-decoration: underline;
+    &::before {
+      background-color: ${colors.brand};
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: ${pseudoWidth}px;
     }
-  }
+
+    &:hover {
+      background: ${$darkMode ? colors.darkGrey : colors.lightGrey};
+
+      ${ItemHeading} {
+        text-decoration: underline;
+      }
+    }
+  `}
 `
 
 export const PublishedText = styled(Text)`
-  color: ${colors.grey};
-  font-family: 'Karla', sans-serif;
+  ${({ $darkMode }): string => css`
+    color: ${$darkMode ? colors.lightGrey : colors.grey};
+    font-family: 'Karla', sans-serif;
+    transition: color 0.2s;
+  `}
 `

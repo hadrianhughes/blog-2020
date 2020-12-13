@@ -3,7 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ArticleBody from '../components/ArticleBody'
 import { ContentfulArticle } from '../types'
-import { formatDate } from '../lib'
+import { DarkModeProvider } from '../context/DarkMode'
+import { formatDate, withProvider } from '../lib'
 
 interface ArticlePageProps {
   data: {
@@ -60,4 +61,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ArticlePage
+export default withProvider(ArticlePage)(DarkModeProvider)

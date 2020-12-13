@@ -8,7 +8,7 @@ const DarkModeToggler: FunctionComponent = () => {
   const toggle = (): void => setActive(!active)
 
   return (
-    <Label tag="label" htmlFor="darkmode">
+    <Label tag="label" htmlFor="darkmode" $darkMode={active}>
       <span>Dark Mode:</span>
       <Checkbox
         id="darkmode"

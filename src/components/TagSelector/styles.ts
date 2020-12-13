@@ -19,16 +19,18 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled(Link)`
-  ${({ $active }): string => $active
+  transition: 0.2s background-color, 0.2s color;
+
+  ${({ $active, $darkMode }): string => $active
     ? css`
       background-color: ${colors.brand};
       border: 2px solid ${colors.brand};
       color: ${colors.white};
     `
     : css`
-      background-color: ${colors.white};
+      background-color: ${$darkMode ? colors.grey : colors.white};
       border: 2px solid ${colors.midGrey};
-      color: ${colors.black};
+      color: ${$darkMode ? colors.white : colors.black};
 
 
       &:hover {

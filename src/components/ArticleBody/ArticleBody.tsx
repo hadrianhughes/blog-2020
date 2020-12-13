@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react'
-import Markdown from 'react-markdown'
+import React, { FunctionComponent, useMemo } from 'react'
+import Markdown, { Renderers } from 'react-markdown'
 import Text from '../Text'
 import {
   Container,
@@ -12,6 +12,7 @@ import {
   Content
 } from './styles'
 import CodeBlock from './CodeBlock'
+import { useDarkMode } from '../../context/DarkMode'
 
 interface ArticleBodyProps {
   heading: string;
@@ -19,8 +20,14 @@ interface ArticleBodyProps {
   publishedAt: string;
 }
 
-const renderers = {
-  code: CodeBlock,
+const getRenderers = (darkMode: boolean) => ({
+  code: ({ value, language }): JSX.Element => (
+    <CodeBlock
+      darkMode={darkMode}
+      value={value}
+      language={language}
+    />
+  ),
   paragraph: ({ children }): JSX.Element => <Text tag="p" align="justify">{children}</Text>,
   list: UL,
   listItem: BulletItem,
@@ -29,23 +36,29 @@ const renderers = {
     const size = level === 2 ? 'xlarge' : 'large'
     return <BodyHeading tag={`h${level}`} size={size}>{children}</BodyHeading>
   },
-  inlineCode: InlineCode
-}
+  inlineCode: ({ children }): JSX.Element => <InlineCode $darkMode={darkMode}>{children}</InlineCode>
+})
 
 const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
   heading,
   markdown,
   publishedAt
-}) => (
-  <Container>
-    <Text tag="h1" size="headline" noSpace>{heading}</Text>
-    <PublishedText noSpace>{publishedAt}</PublishedText>
-    <Content>
-      <Markdown renderers={renderers}>
-        {markdown}
-      </Markdown>
-    </Content>
-  </Container>
-)
+}) => {
+  const { active: darkModeActive } = useDarkMode()
+
+  const renderers = useMemo(() => getRenderers(darkModeActive), [darkModeActive])
+
+  return (
+    <Container>
+      <Text tag="h1" size="headline" noSpace>{heading}</Text>
+      <PublishedText noSpace $darkMode={darkModeActive}>{publishedAt}</PublishedText>
+      <Content>
+        <Markdown renderers={renderers}>
+          {markdown}
+        </Markdown>
+      </Content>
+    </Container>
+  )
+}
 
 export default ArticleBody

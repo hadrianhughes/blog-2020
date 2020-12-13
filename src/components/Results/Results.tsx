@@ -6,6 +6,7 @@ import {
   PublishedText,
   ItemHeading
 } from './styles'
+import { useDarkMode } from '../../context/DarkMode'
 
 export type Result = {
   title: string;
@@ -18,19 +19,23 @@ interface ResultsProps {
   items: Result[];
 }
 
-const Results: FunctionComponent<ResultsProps> = ({ items }) => (
-  <List>
-    {
-      items.map(item => (
-        <li key={item.path}>
-          <Link to={'/' + item.path}>
-            <ItemHeading tag="h3" size="large">{item.title}</ItemHeading>
-            <PublishedText noSpace>{item.publishedAt}</PublishedText>
-          </Link>
-        </li>
-      ))
-    }
-  </List>
-)
+const Results: FunctionComponent<ResultsProps> = ({ items }) => {
+  const { active: darkModeActive } = useDarkMode()
+
+  return (
+    <List>
+      {
+        items.map(item => (
+          <li key={item.path}>
+            <Link to={'/' + item.path} $darkMode={darkModeActive}>
+              <ItemHeading tag="h3" size="large">{item.title}</ItemHeading>
+              <PublishedText noSpace $darkMode={darkModeActive}>{item.publishedAt}</PublishedText>
+            </Link>
+          </li>
+        ))
+      }
+    </List>
+  )
+}
 
 export default Results

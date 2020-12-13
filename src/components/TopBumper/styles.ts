@@ -12,6 +12,7 @@ export const StyledLink = styled(Link)`
 `
 
 export const ProfileImg = styled.img`
+  border: 2px solid ${colors.white};
   border-radius: 50%;
   margin-right: ${rem(10)};
   width: ${rem(50)};

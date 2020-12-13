@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem, minWidth } from '../../styles/tools'
 import { spacings, colors } from '../../styles/settings'
 import Text from '../Text'
@@ -47,13 +47,17 @@ export const BodyHeading = styled(Text)`
 `
 
 export const InlineCode = styled.code`
-  background-color: ${colors.parchment};
-  padding: ${spacings.xsmall}px ${spacings.small}px;
+  ${({ $darkMode }): string => css`
+    background-color: ${$darkMode ? colors.grey : colors.parchment};
+    padding: ${spacings.xsmall}px ${spacings.small}px;
+  `}
 `
 
 export const PublishedText = styled(Text)`
-  color: ${colors.grey};
-  font-family: 'Karla', sans-serif;
+  ${({ $darkMode }): string => css`
+    color: ${$darkMode ? colors.lightGrey : colors.grey};
+    font-family: 'Karla', sans-serif;
+  `}
 `
 
 export const Content = styled.div`
