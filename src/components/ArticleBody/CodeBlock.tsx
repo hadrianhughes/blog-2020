@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism'
 import solarizedlight from 'react-syntax-highlighter/dist/cjs/styles/prism/solarizedlight'
-import dracula from 'react-syntax-highlighter/dist/cjs/styles/prism/dracula'
+import materialDark from 'react-syntax-highlighter/dist/cjs/styles/prism/material-dark'
 
 interface CodeBlockProps {
   value: string;
@@ -10,7 +10,7 @@ interface CodeBlockProps {
 }
 
 const CodeBlock: FunctionComponent<CodeBlockProps> = ({ value, language, darkMode }) => (
-  <SyntaxHighlighter language={language} style={darkMode ? dracula : solarizedlight}>
+  <SyntaxHighlighter language={language} style={darkMode ? materialDark : solarizedlight}>
     {value}
   </SyntaxHighlighter>
 )
