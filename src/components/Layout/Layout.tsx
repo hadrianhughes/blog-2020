@@ -11,7 +11,6 @@ import Footer from '../Footer'
 import TopBumper from '../TopBumper'
 import Text from '../Text'
 import { useDarkMode } from '../../context/DarkMode'
-import DarkModeToggler from '../DarkModeToggler'
 
 type OpenState = 'profile' | 'menu' | null
 
@@ -80,13 +79,10 @@ const Layout: FunctionComponent<LayoutProps> = ({
             heading={heading} />
           {
             isSmallScreen && mini
-              ? (
-                <DarkModeToggler />
-              )
+              ? null
               : (
                 <>
                   <Text testId="introduction">{introduction.introduction}</Text>
-                  <DarkModeToggler />
                   <hr />
                   <TagSelector />
                 </>

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import Text from '../Text'
-import { colors, spacings } from '../../styles/settings'
-import { rem, minWidth } from '../../styles/tools'
+import { colors } from '../../styles/settings'
+import { rem } from '../../styles/tools'
 
 const toggleWidth = 50
 const toggleHeight = 30
@@ -14,17 +14,7 @@ export const Label = styled(Text)`
     display: flex;
     font-family: Karla, sans-serif;
     justify-content: center;
-    margin-top: ${rem(spacings.large)};
     transition: color 0.2s;
-
-    ${minWidth('medium')} {
-      margin-top: ${rem(spacings.xlarge)};
-    }
-
-    span {
-      line-height: 1;
-      max-width: ${rem(50)};
-    }
   `}
 `
 
@@ -36,7 +26,6 @@ export const Checkbox = styled.input`
   cursor: pointer;
   height: ${rem(toggleHeight)};
   margin: 0;
-  margin-left: ${rem(spacings.small)};
   position: relative;
   width: ${rem(toggleWidth)};
 

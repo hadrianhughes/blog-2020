@@ -1,13 +1,14 @@
 export const baseFontSize = 16
 
-export type Breakpoint = 'small' | 'medium' | 'large'
+export type Breakpoint = 'small' | 'medium' | 'large' | 'xlarge'
 export type FontSize = 'body' | 'large' | 'xlarge' | 'headline'
 export type Spacing = 'xsmall' | 'small' | 'medium' | 'large'
 
 export const breakpoints = {
   small: 375,
   medium: 768,
-  large: 1024
+  large: 1024,
+  xlarge: 1200
 }
 
 export const colors = {

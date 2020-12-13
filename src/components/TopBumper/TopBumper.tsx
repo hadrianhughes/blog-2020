@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import Text from '../Text'
-import { StyledLink as Link, ProfileImg } from './styles'
+import { StyledLink as Link, ProfileImg, Title, Container } from './styles'
+import DarkModeToggler from '../DarkModeToggler'
 
 interface TopBumperProps {
   imgSrc: string;
@@ -9,10 +9,13 @@ interface TopBumperProps {
 }
 
 const TopBumper: FunctionComponent<TopBumperProps> = ({ imgSrc, imgAlt, heading }) => (
-  <Link to="/" data-testid="top-bumper">
-    <ProfileImg src={imgSrc} alt={imgAlt} />
-    <Text align="center" tag="h2" size="large">{heading}</Text>
-  </Link>
+  <Container>
+    <Link to="/" data-testid="top-bumper">
+      <ProfileImg src={imgSrc} alt={imgAlt} />
+      <Title align="left" tag="h2" size="large">{heading}</Title>
+    </Link>
+    <DarkModeToggler />
+  </Container>
 )
 
 export default TopBumper
