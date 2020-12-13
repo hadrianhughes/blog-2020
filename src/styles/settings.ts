@@ -14,10 +14,9 @@ export const breakpoints = {
 export const colors = {
   white: '#fff',
   black: '#000',
-  grey: '#6d6b6b',
-  blueGrey: '#fafafb',
   lightGrey: '#fbfbfb',
-  midGrey: '#d4d4d4',
+  midGrey: '#f1f1f1',
+  grey: '#6d6b6b',
   darkGrey: '#808080',
   parchment: '#fdf8eb',
   brand: '#10D9A3',

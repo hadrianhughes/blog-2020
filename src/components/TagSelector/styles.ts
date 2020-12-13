@@ -29,12 +29,12 @@ export const StyledLink = styled(Link)`
     `
     : css`
       background-color: ${$darkMode ? colors.grey : colors.white};
-      border: 2px solid ${colors.midGrey};
+      border: 2px solid ${colors.grey};
       color: ${$darkMode ? colors.white : colors.black};
 
 
       &:hover {
-        background-color: ${colors.mintWhite};
+        background-color: ${$darkMode ? colors.darkGrey : colors.mintWhite};
         border: 2px solid ${colors.brand};
       }
     `

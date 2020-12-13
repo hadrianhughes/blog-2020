@@ -17,7 +17,7 @@ export const ItemHeading = styled(Text)`
 
 export const ItemLink = styled(Link)`
   ${({ $darkMode }): string => css`
-    background: ${$darkMode ? colors.grey : colors.white};
+    background: ${$darkMode ? colors.grey : colors.lightGrey};
     box-sizing: border-box;
     color: ${colors.black};
     display: block;
@@ -38,7 +38,7 @@ export const ItemLink = styled(Link)`
     }
 
     &:hover {
-      background: ${$darkMode ? colors.darkGrey : colors.lightGrey};
+      background: ${$darkMode ? colors.darkGrey : colors.midGrey};
 
       ${ItemHeading} {
         text-decoration: underline;
