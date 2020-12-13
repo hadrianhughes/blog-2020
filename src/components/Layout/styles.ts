@@ -3,22 +3,22 @@ import { minWidth, rem } from '../../styles/tools'
 import { spacings } from '../../styles/settings'
 
 export const Container = styled.div`
+  min-height: 100vh;
   width: 100%;
 
   ${minWidth('large')} {
     display: grid;
     grid-template-columns: 25% 75%;
-    min-height: 100vh;
   }
 `
 
 export const Header = styled.header`
   div {
-    padding: ${(props): string => props.isBigScreen ? rem(spacings.medium) : rem(spacings.small, spacings.large)};
+    box-sizing: border-box;
+    padding: ${rem(spacings.small, spacings.medium)};
     position: sticky;
     top: 0;
-
-    padding: ${rem(spacings.small, spacings.medium)};
+    width: 100%;
 
     ${minWidth('medium')} {
       padding: ${rem(spacings.small, spacings.large)};
@@ -31,5 +31,11 @@ export const Header = styled.header`
 `
 
 export const Main = styled.main`
+  box-sizing: border-box;
   padding: ${rem(spacings.medium)};
+  width: 100%;
+
+  ${minWidth('large')} {
+    width: auto;
+  }
 `

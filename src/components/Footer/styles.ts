@@ -6,4 +6,5 @@ export const StyledFooter = styled.footer`
   font-family: Karla, sans-serif;
   justify-content: center;
   grid-column: 1 / -1;
+  width: 100%;
 `
