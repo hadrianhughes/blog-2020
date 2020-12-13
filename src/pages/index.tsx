@@ -4,8 +4,6 @@ import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import { ContentfulArticleStub } from '../types'
 import { siteTitle } from '../globals'
-import { DarkModeProvider } from '../context/DarkMode'
-import { withProvider } from '../lib'
 
 interface HomeProps {
   data: {
@@ -47,4 +45,4 @@ export const query = graphql`
   }
 `
 
-export default withProvider(Home)(DarkModeProvider)
+export default Home

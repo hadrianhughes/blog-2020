@@ -4,8 +4,7 @@ import Layout from '../components/Layout'
 import Results, { Result } from '../components/Results'
 import Text from '../components/Text'
 import { ContentfulArticleStub } from '../types'
-import { DarkModeProvider } from '../context/DarkMode'
-import { useQueryString, filterByTag, formatDate, withProvider } from '../lib'
+import { useQueryString, filterByTag, formatDate } from '../lib'
 
 interface ResultsPageProps {
   data: {
@@ -61,4 +60,4 @@ export const query = graphql`
   }
 `
 
-export default withProvider(ResultsPage)(DarkModeProvider)
+export default ResultsPage
