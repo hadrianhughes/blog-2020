@@ -20,7 +20,8 @@ export const colors = {
   darkGrey: '#808080',
   parchment: '#fdf8eb',
   brand: '#10D9A3',
-  mintWhite: '#f9fffc'
+  mintWhite: '#f9fffc',
+  nightGrey: '#464646'
 }
 
 export const fontSizes = {

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import { rem } from './tools'
 import { baseFontSize, colors, spacings } from './settings'
 
@@ -14,6 +14,11 @@ const Globals = createGlobalStyle`
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    transition: 0.2s background-color;
+
+    ${({ darkMode }): string => darkMode && css`
+      background-color: ${colors.nightGrey};
+    `}
   }
 
   hr {

@@ -10,7 +10,8 @@ import Head from '../Head'
 import Footer from '../Footer'
 import TopBumper from '../TopBumper'
 import Text from '../Text'
-import { DarkModeProvider } from '../../context/DarkMode'
+import { DarkModeProvider, useDarkMode } from '../../context/DarkMode'
+import { withProvider } from '../../lib'
 import DarkModeToggler from '../DarkModeToggler'
 
 type OpenState = 'profile' | 'menu' | null
@@ -60,47 +61,46 @@ const Layout: FunctionComponent<LayoutProps> = ({
   } = data
 
   const isSmallScreen = useMediaQuery({ query: `(max-width: ${breakpoints.medium}px)` })
+  const { active: darkModeActive } = useDarkMode()
 
   return (
-    <DarkModeProvider>
-      <Container>
-        <GlobalStyles />
-        <Head
-          title={title}
-          description={description || introduction.introduction}
-          tags={tags}
-          publishedAt={publishedAt}
-          path={path}
-        />
-        <Header>
-          <div>
-            <TopBumper
-              imgSrc={profileImage.resize.src}
-              imgAlt={profileImage.description}
-              heading={heading} />
-            {
-              isSmallScreen && mini
-                ? (
+    <Container>
+      <GlobalStyles darkMode={darkModeActive} />
+      <Head
+        title={title}
+        description={description || introduction.introduction}
+        tags={tags}
+        publishedAt={publishedAt}
+        path={path}
+      />
+      <Header>
+        <div>
+          <TopBumper
+            imgSrc={profileImage.resize.src}
+            imgAlt={profileImage.description}
+            heading={heading} />
+          {
+            isSmallScreen && mini
+              ? (
+                <DarkModeToggler />
+              )
+              : (
+                <>
+                  <Text testId="introduction">{introduction.introduction}</Text>
                   <DarkModeToggler />
-                )
-                : (
-                  <>
-                    <Text testId="introduction">{introduction.introduction}</Text>
-                    <DarkModeToggler />
-                    <hr />
-                    <TagSelector />
-                  </>
-                )
-            }
-          </div>
-        </Header>
-        <Main>
-          {children}
-        </Main>
-        <Footer />
-      </Container>
-    </DarkModeProvider>
+                  <hr />
+                  <TagSelector />
+                </>
+              )
+          }
+        </div>
+      </Header>
+      <Main>
+        {children}
+      </Main>
+      <Footer />
+    </Container>
   )
 }
 
-export default Layout
+export default withProvider(Layout)(DarkModeProvider)
