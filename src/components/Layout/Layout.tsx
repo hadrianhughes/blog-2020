@@ -10,6 +10,8 @@ import Head from '../Head'
 import Footer from '../Footer'
 import TopBumper from '../TopBumper'
 import Text from '../Text'
+import { DarkModeProvider } from '../../context/DarkMode'
+import DarkModeToggler from '../DarkModeToggler'
 
 type OpenState = 'profile' | 'menu' | null
 
@@ -60,39 +62,44 @@ const Layout: FunctionComponent<LayoutProps> = ({
   const isSmallScreen = useMediaQuery({ query: `(max-width: ${breakpoints.medium}px)` })
 
   return (
-    <Container>
-      <GlobalStyles />
-      <Head
-        title={title}
-        description={description || introduction.introduction}
-        tags={tags}
-        publishedAt={publishedAt}
-        path={path}
-      />
-      <Header>
-        <div>
-          <TopBumper
-            imgSrc={profileImage.resize.src}
-            imgAlt={profileImage.description}
-            heading={heading} />
-          {
-            isSmallScreen && mini
-              ? null
-              : (
-                <>
-                  <Text testId="introduction">{introduction.introduction}</Text>
-                  <hr />
-                  <TagSelector />
-                </>
-              )
-          }
-        </div>
-      </Header>
-      <Main>
-        {children}
-      </Main>
-      <Footer />
-    </Container>
+    <DarkModeProvider>
+      <Container>
+        <GlobalStyles />
+        <Head
+          title={title}
+          description={description || introduction.introduction}
+          tags={tags}
+          publishedAt={publishedAt}
+          path={path}
+        />
+        <Header>
+          <div>
+            <TopBumper
+              imgSrc={profileImage.resize.src}
+              imgAlt={profileImage.description}
+              heading={heading} />
+            {
+              isSmallScreen && mini
+                ? (
+                  <DarkModeToggler />
+                )
+                : (
+                  <>
+                    <Text testId="introduction">{introduction.introduction}</Text>
+                    <DarkModeToggler />
+                    <hr />
+                    <TagSelector />
+                  </>
+                )
+            }
+          </div>
+        </Header>
+        <Main>
+          {children}
+        </Main>
+        <Footer />
+      </Container>
+    </DarkModeProvider>
   )
 }
 
