@@ -34,7 +34,7 @@ describe('Results component', () => {
   it('Should render an <h3> for each item containing the title', () => {
     const { queryByText } = render(<Results items={items} />)
 
-    items.forEach((item, i) => {
+    items.forEach(item => {
       expect(queryByText(item.title, { selector: 'h3' })).toBeTruthy()
     })
   })
@@ -42,7 +42,7 @@ describe('Results component', () => {
   it('Should render a <p> for each item containing the publishedAt', () => {
     const { queryByText } = render(<Results items={items} />)
 
-    items.forEach((item, i) => {
+    items.forEach(item => {
       expect(queryByText(item.publishedAt, { selector: 'p' })).toBeTruthy()
     })
   })
