@@ -49,6 +49,7 @@ export const BodyHeading = styled(Text)`
 export const InlineCode = styled.code`
   ${({ $darkMode }): string => css`
     background-color: ${$darkMode ? colors.grey : colors.parchment};
+    overflow-wrap: break-word;
     padding: ${spacings.xsmall}px ${spacings.small}px;
   `}
 `

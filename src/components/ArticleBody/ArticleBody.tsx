@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useMemo } from 'react'
-import Markdown, { Renderers } from 'react-markdown'
+import Markdown from 'react-markdown'
 import Text from '../Text'
 import {
   Container,
@@ -13,6 +13,7 @@ import {
 } from './styles'
 import CodeBlock from './CodeBlock'
 import { useDarkMode } from '../../context/DarkMode'
+import { Dict } from '../../types'
 
 interface ArticleBodyProps {
   heading: string;
@@ -20,7 +21,7 @@ interface ArticleBodyProps {
   publishedAt: string;
 }
 
-const getRenderers = (darkMode: boolean) => ({
+const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => ({
   code: ({ value, language }): JSX.Element => (
     <CodeBlock
       darkMode={darkMode}

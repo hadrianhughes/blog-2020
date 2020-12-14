@@ -37,3 +37,7 @@ export type ContentfulArticle = {
   tags: Tag[];
   createdAt: string;
 }
+
+export type Dict<T> = {
+  [key: string]: T;
+}
