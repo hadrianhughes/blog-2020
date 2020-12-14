@@ -30,7 +30,7 @@ const Head: FunctionComponent<HeadProps> = ({
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={makeTitle(title)} />
     <meta property="og:type" content="article" />
     <meta property="og:url" content={`${siteUrl}/${path || ''}`} />
     <meta property="article:author" content="Hadrian Hughes" />
