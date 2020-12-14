@@ -29,6 +29,8 @@ const Head: FunctionComponent<HeadProps> = ({
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,500;0,700;1,500;1,700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="preload" href="/img/moon.svg" as="image" />
+    <link rel="preload" href="/img/sun.svg" as="image" />
 
     <meta property="og:title" content={makeTitle(title)} />
     <meta property="og:type" content="article" />

@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components'
-import Text from '../Text'
+import styled from 'styled-components'
 import { colors } from '../../styles/settings'
 import { rem } from '../../styles/tools'
 
