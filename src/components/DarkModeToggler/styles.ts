@@ -7,17 +7,6 @@ const toggleWidth = 50
 const toggleHeight = 30
 const sliderSize = toggleHeight - 8
 
-export const Label = styled(Text)`
-  ${({ $darkMode }): string => css`
-    align-items: center;
-    color: ${$darkMode ? colors.white : colors.grey};
-    display: flex;
-    font-family: Karla, sans-serif;
-    justify-content: center;
-    transition: color 0.2s;
-  `}
-`
-
 export const Checkbox = styled.input`
   appearance: none;
   background-color: ${colors.nightGrey};

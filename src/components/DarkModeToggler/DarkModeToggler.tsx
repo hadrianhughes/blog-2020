@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { useDarkMode } from '../../context/DarkMode'
-import { Label, Checkbox } from './styles'
+import { Checkbox } from './styles'
 
 const DarkModeToggler: FunctionComponent = () => {
   const { active, setActive } = useDarkMode()
@@ -8,14 +8,12 @@ const DarkModeToggler: FunctionComponent = () => {
   const toggle = (): void => setActive(!active)
 
   return (
-    <Label tag="label" htmlFor="darkmode" $darkMode={active}>
-      <Checkbox
-        id="darkmode"
-        type="checkbox"
-        checked={active}
-        onChange={toggle}
-      />
-    </Label>
+    <Checkbox
+      type="checkbox"
+      checked={active}
+      onChange={toggle}
+      aria-label="Dark Mode"
+    />
   )
 }
 
