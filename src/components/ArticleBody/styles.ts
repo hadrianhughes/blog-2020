@@ -64,3 +64,7 @@ export const PublishedText = styled(Text)`
 export const Content = styled.div`
   margin-top: ${rem(spacings.large)};
 `
+
+export const Title = styled(Text)`
+  margin-top: ${rem(spacings.large)};
+`

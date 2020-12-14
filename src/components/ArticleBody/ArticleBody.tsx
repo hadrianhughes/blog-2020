@@ -9,7 +9,8 @@ import {
   BodyHeading,
   InlineCode,
   PublishedText,
-  Content
+  Content,
+  Title
 } from './styles'
 import CodeBlock from './CodeBlock'
 import { useDarkMode } from '../../context/DarkMode'
@@ -51,7 +52,7 @@ const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
 
   return (
     <Container>
-      <Text tag="h1" size="headline" noSpace>{heading}</Text>
+      <Title tag="h1" size="headline" noSpace>{heading}</Title>
       <PublishedText noSpace $darkMode={darkModeActive}>{publishedAt}</PublishedText>
       <Content>
         <Markdown renderers={renderers}>
