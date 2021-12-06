@@ -26,7 +26,7 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
       title={title}
       description={description.description}
       mini
-      tags={tags.map(t => t.name)}
+      tags={(tags || []).map(t => t.name)}
       publishedAt={createdAt}
       path={path}
     >
