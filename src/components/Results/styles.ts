@@ -11,8 +11,13 @@ export const List = styled.ul`
   padding: 0;
 `
 
+export const ListItem = styled.li`
+  margin: ${rem(spacings.small)} 0;
+`
+
 export const ItemHeading = styled(Text)`
-  margin: 0 0 ${rem(spacings.small)};
+  line-height: 1.4;
+  margin: 0;
 `
 
 export const ItemLink = styled(Link)`
@@ -21,7 +26,7 @@ export const ItemLink = styled(Link)`
     box-sizing: border-box;
     color: ${colors.black};
     display: block;
-    padding: ${rem(spacings.medium, spacings.large)};
+    padding: ${rem(spacings.small, spacings.large)};
     position: relative;
     text-decoration: none;
     transition: background 0.2s;
