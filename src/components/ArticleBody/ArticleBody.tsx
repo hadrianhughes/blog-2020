@@ -26,13 +26,19 @@ interface ArticleBodyProps {
 }
 
 const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => ({
-  code: ({ value, language }): JSX.Element => (
-    <CodeBlock
-      darkMode={darkMode}
-      value={value}
-      language={language}
-    />
-  ),
+  code: ({ children, className, inline, ...props }): JSX.Element => {
+    const match = /language-(\w+)/.exec(className || '')
+    return !inline && match ? (
+      <CodeBlock
+        darkMode={darkMode}
+        value={children}
+        language={match[1]}
+        {...props}
+      />
+    ) : (
+      <code {...props}>{children}</code>
+    )
+  },
   paragraph: ({ children }): JSX.Element => <Text tag="p" align="justify">{children}</Text>,
   list: UL,
   listItem: BulletItem,

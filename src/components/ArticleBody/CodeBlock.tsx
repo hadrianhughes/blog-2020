@@ -11,7 +11,7 @@ interface CodeBlockProps {
 
 const CodeBlock: FunctionComponent<CodeBlockProps> = ({ value, language, darkMode }) => (
   <SyntaxHighlighter language={language} style={darkMode ? materialDark : solarizedlight}>
-    {value}
+    {value || ''}
   </SyntaxHighlighter>
 )
 
