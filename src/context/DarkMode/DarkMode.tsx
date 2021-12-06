@@ -1,11 +1,10 @@
 import React, {
   createContext,
+  useMemo,
   useState,
   FunctionComponent,
   useContext,
-  useEffect
 } from 'react'
-import { darkModeLSKey } from '../../globals'
 
 export type DarkModeType = {
   active: boolean;
@@ -18,31 +17,15 @@ interface DarkModeProviderProps {
   testing?: boolean;
 }
 
-export const DarkModeProvider: FunctionComponent<DarkModeProviderProps> = ({ children, testing }) => {
-  const [active, setActive] = useState(false)
-
-  const setDarkMode = (value: boolean): void => {
-    setActive(value)
-
-    if (typeof window !== 'undefined' && !testing) {
-      window.localStorage.setItem(darkModeLSKey, String(value))
-    }
-  }
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && !testing) {
-      const lsDarkModeActive = window.localStorage.getItem(darkModeLSKey)
-
-      if (lsDarkModeActive === 'true') {
-        setActive(true)
-      } else if (lsDarkModeActive === 'false') {
-        setActive(false)
-      }
-    }
+export const DarkModeProvider: FunctionComponent<DarkModeProviderProps> = ({ children }) => {
+  const isNight = useMemo(() => {
+    const hours = new Date().getHours()
+    return hours < 6 || hours >= 18
   }, [])
+  const [active, setActive] = useState(isNight)
 
   return (
-    <DarkModeContext.Provider value={{ active, setActive: setDarkMode }}>
+    <DarkModeContext.Provider value={{ active, setActive }}>
       {children}
     </DarkModeContext.Provider>
   )
