@@ -55,7 +55,7 @@ const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
       <Title tag="h1" size="headline" noSpace>{heading}</Title>
       <PublishedText noSpace $darkMode={darkModeActive}>{publishedAt}</PublishedText>
       <Content>
-        <Markdown renderers={renderers}>
+        <Markdown components={renderers}>
           {markdown}
         </Markdown>
       </Content>
