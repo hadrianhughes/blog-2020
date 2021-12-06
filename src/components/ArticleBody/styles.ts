@@ -62,7 +62,10 @@ export const PublishedText = styled(Text)`
 `
 
 export const Content = styled.div`
-  margin-top: ${rem(spacings.large)};
+  ${({ $darkMode }): string => css`
+    color: ${$darkMode ? 'white' : 'black'};
+    margin-top: ${rem(spacings.large)};
+  `}
 `
 
 export const Title = styled(Text)`

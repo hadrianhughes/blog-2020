@@ -64,7 +64,7 @@ const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
     <Container>
       <Title tag="h1" size="headline" noSpace>{heading}</Title>
       <PublishedText noSpace $darkMode={darkModeActive}>{publishedAt}</PublishedText>
-      <Content>
+      <Content $darkMode={darkModeActive}>
         <Markdown components={renderers} rehypePlugins={[rehypeKatex]} remarkPlugins={[remarkMath]}>
           {markdown}
         </Markdown>
