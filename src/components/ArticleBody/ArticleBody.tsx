@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import Markdown from 'react-markdown'
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import Text from '../Text'
 import {
   Container,
@@ -15,6 +17,7 @@ import {
 import CodeBlock from './CodeBlock'
 import { useDarkMode } from '../../context/DarkMode'
 import { Dict } from '../../types'
+import 'katex/dist/katex.min.css'
 
 interface ArticleBodyProps {
   heading: string;
@@ -55,7 +58,7 @@ const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
       <Title tag="h1" size="headline" noSpace>{heading}</Title>
       <PublishedText noSpace $darkMode={darkModeActive}>{publishedAt}</PublishedText>
       <Content>
-        <Markdown components={renderers}>
+        <Markdown components={renderers} rehypePlugins={[rehypeKatex]} remarkPlugins={[remarkMath]}>
           {markdown}
         </Markdown>
       </Content>
