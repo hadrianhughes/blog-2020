@@ -27,11 +27,12 @@ interface ArticleBodyProps {
 
 const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => ({
   code: ({ children, className, inline, ...props }): JSX.Element => {
+    const _children = children.map(c => c.replace(/(^\n|\n$)/, ''))
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
       <CodeBlock
         darkMode={darkMode}
-        value={children}
+        value={_children}
         language={match[1]}
         {...props}
       />
