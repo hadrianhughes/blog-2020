@@ -8,4 +8,4 @@ const Footer: FunctionComponent = () => (
   </StyledFooter>
 )
 
-export default Footer;
+export default Footer

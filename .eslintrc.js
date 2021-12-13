@@ -31,6 +31,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'no-unused-vars': 'error',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    'semi': [2, 'never']
   }
 }

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import Markdown from 'react-markdown'
-import rehypeKatex from 'rehype-katex';
-import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
 import Text from '../Text'
 import {
   Container,

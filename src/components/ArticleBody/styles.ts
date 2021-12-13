@@ -3,7 +3,7 @@ import { rem, minWidth } from '../../styles/tools'
 import { spacings, colors } from '../../styles/settings'
 import Text from '../Text'
 
-const bulletSize = 8;
+const bulletSize = 8
 
 export const Container = styled.section`
   ${minWidth('medium')} {
