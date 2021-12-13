@@ -25,31 +25,36 @@ interface ArticleBodyProps {
   publishedAt: string;
 }
 
-const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => ({
-  code: ({ children, className, inline, ...props }): JSX.Element => {
-    const _children = children.map(c => c.replace(/(^\n|\n$)/, ''))
-    const match = /language-(\w+)/.exec(className || '')
-    return !inline && match ? (
-      <CodeBlock
-        darkMode={darkMode}
-        value={_children}
-        language={match[1]}
-        {...props}
-      />
-    ) : (
-      <code {...props}>{children}</code>
-    )
-  },
-  paragraph: ({ children }): JSX.Element => <Text tag="p" align="justify">{children}</Text>,
-  list: UL,
-  listItem: BulletItem,
-  image: ({ src, alt }): JSX.Element => <Image src={src + (src.includes('?') ? '&' : '?') + 'fm=webp'} alt={alt} />,
-  heading: ({ level, children }): JSX.Element  => {
-    const size = level === 2 ? 'xlarge' : 'large'
-    return <BodyHeading tag={`h${level}`} size={size}>{children}</BodyHeading>
-  },
-  inlineCode: ({ children }): JSX.Element => <InlineCode $darkMode={darkMode}>{children}</InlineCode>
-})
+const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => {
+  const subheading = ({ children, level }): JSX.Element => <BodyHeading tag={`h${level}`} size="large">{children}</BodyHeading>
+
+  return {
+    code: ({ children, className, inline, ...props }): JSX.Element => {
+      const _children = children.map(c => c.replace(/(^\n|\n$)/, ''))
+      const match = /language-(\w+)/.exec(className || '')
+      return !inline && match ? (
+        <CodeBlock
+          darkMode={darkMode}
+          value={_children}
+          language={match[1]}
+          {...props}
+        />
+      ) : (
+        <code {...props}>{children}</code>
+      )
+    },
+    paragraph: ({ children }): JSX.Element => <Text tag="p" align="justify">{children}</Text>,
+    list: UL,
+    listItem: BulletItem,
+    image: ({ src, alt }): JSX.Element => <Image src={src + (src.includes('?') ? '&' : '?') + 'fm=webp'} alt={alt} />,
+    h2: ({ children }): JSX.Element => <BodyHeading tag="h2" size="xlarge">{children}</BodyHeading>,
+    h3: subheading,
+    h4: subheading,
+    h5: subheading,
+    h6: subheading,
+    inlineCode: ({ children }): JSX.Element => <InlineCode $darkMode={darkMode}>{children}</InlineCode>
+  }
+}
 
 const ArticleBody: FunctionComponent<ArticleBodyProps> = ({
   heading,
