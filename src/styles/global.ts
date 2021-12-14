@@ -32,6 +32,10 @@ const Globals = createGlobalStyle`
     a {
       color: ${darkMode ? colors.white : colors.black}
     }
+
+    .katex-display {
+      margin: 2rem 0;
+    }
   `}
 `
 
