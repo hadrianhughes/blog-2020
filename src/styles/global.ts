@@ -34,7 +34,10 @@ const Globals = createGlobalStyle`
     }
 
     .katex-display {
+      font-size: 0.875rem;
       margin: 2rem 0;
+      overflow-x: auto;
+      padding: 10px 0;
     }
   `}
 `
