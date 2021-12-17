@@ -17,7 +17,7 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
     content,
     description,
     tags,
-    createdAt,
+    published,
     path
   } = data.contentfulArticle
 
@@ -27,14 +27,14 @@ const ArticlePage: FunctionComponent<ArticlePageProps> = ({ data }) => {
       description={description.description}
       mini
       tags={(tags || []).map(t => t.name)}
-      publishedAt={createdAt}
+      publishedAt={published}
       path={path}
     >
       <article>
         <ArticleBody
           heading={title}
           markdown={content.content}
-          publishedAt={formatDate(new Date(createdAt))}
+          publishedAt={formatDate(new Date(published))}
         />
       </article>
     </Layout>
@@ -52,7 +52,7 @@ export const pageQuery = graphql`
       content {
         content
       }
-      createdAt
+      published
       tags {
         name
       }

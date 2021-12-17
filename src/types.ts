@@ -21,7 +21,7 @@ export type Tag = {
 export type ContentfulArticleStub = {
   title: string;
   path: string;
-  createdAt: string;
+  published: string;
   tags: Tag[];
 }
 
@@ -35,7 +35,7 @@ export type ContentfulArticle = {
     content: string;
   };
   tags: Tag[];
-  createdAt: string;
+  published: string;
 }
 
 export type Dict<T> = {

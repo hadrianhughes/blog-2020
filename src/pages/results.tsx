@@ -21,7 +21,7 @@ const ResultsPage: FunctionComponent<ResultsPageProps> = ({ data }) => {
   const resultItems: Result[] = allContentfulArticle.edges.map(({ node }) => ({
     title: node.title,
     path: node.path,
-    publishedAt: formatDate(new Date(node.createdAt)),
+    publishedAt: formatDate(new Date(node.published)),
     tags: node.tags
   }))
 
