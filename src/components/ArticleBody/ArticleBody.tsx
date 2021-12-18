@@ -30,29 +30,33 @@ const getRenderers = (darkMode: boolean): Dict<(props: any) => JSX.Element> => {
 
   return {
     code: ({ children, className, inline, ...props }): JSX.Element => {
+      if (inline) {
+        return <InlineCode $darkMode={darkMode} {...props}>{children}</InlineCode>
+      }
+
       const _children = children.map(c => c.replace(/(^\n|\n$)/, ''))
       const match = /language-(\w+)/.exec(className || '')
-      return !inline && match ? (
+      return (
         <CodeBlock
           darkMode={darkMode}
           value={_children}
           language={match[1]}
           {...props}
         />
-      ) : (
-        <code {...props}>{children}</code>
       )
     },
-    paragraph: ({ children }): JSX.Element => <Text tag="p" align="justify">{children}</Text>,
-    list: UL,
-    listItem: BulletItem,
-    image: ({ src, alt }): JSX.Element => <Image src={src + (src.includes('?') ? '&' : '?') + 'fm=webp'} alt={alt} />,
+    p: ({ children }): JSX.Element => {
+      const isImg = children[0].type?.name === 'img'
+      return <Text tag="p" align={isImg ? 'center' : 'justify'}>{children}</Text>
+    },
+    ul: UL,
+    li: BulletItem,
+    img: (props): JSX.Element => <Image src={props.src + (props.src.includes('?') ? '&' : '?') + 'fm=webp'} alt={props.alt} />,
     h2: ({ children }): JSX.Element => <BodyHeading tag="h2" size="xlarge">{children}</BodyHeading>,
     h3: subheading,
     h4: subheading,
     h5: subheading,
     h6: subheading,
-    inlineCode: ({ children }): JSX.Element => <InlineCode $darkMode={darkMode}>{children}</InlineCode>
   }
 }
 
