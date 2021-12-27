@@ -3,6 +3,7 @@ import React, {
   useState,
   FunctionComponent,
   useContext,
+  useEffect,
 } from 'react'
 
 export type DarkModeType = {
@@ -10,19 +11,23 @@ export type DarkModeType = {
   setActive: React.Dispatch<boolean>;
 }
 
-const isNight = ((): boolean => {
-  const hours = new Date().getHours()
-  return hours < 6 || hours >= 18
-})()
-
-export const DarkModeContext = createContext<DarkModeType>({ active: isNight, setActive: () => null })
+export const DarkModeContext = createContext<DarkModeType>({ active: false, setActive: () => null })
 
 interface DarkModeProviderProps {
   testing?: boolean;
 }
 
 export const DarkModeProvider: FunctionComponent<DarkModeProviderProps> = ({ children }) => {
-  const [active, setActive] = useState(isNight)
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const isNight = ((): boolean => {
+      const hours = new Date().getHours()
+      return hours < 6 || hours >= 18
+    })()
+
+    setActive(isNight)
+  }, [])
 
   return (
     <DarkModeContext.Provider value={{ active, setActive }}>
